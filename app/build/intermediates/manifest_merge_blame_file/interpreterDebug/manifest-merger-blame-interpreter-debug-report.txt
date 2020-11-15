@@ -22,52 +22,58 @@
 14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 14-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:8:5-81
 14-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:8:22-78
-15
-16    <application
-16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:5-28:19
-17        android:allowBackup="true"
-17-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:11:9-35
-18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:24:18-86
-19        android:debuggable="true"
-20        android:icon="@mipmap/ic_launcher"
-20-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:9-43
-21        android:label="@string/tfe_tc_app_name"
-21-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:9-48
-22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-54
-23        android:supportsRtl="true"
-23-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:15:9-35
-24        android:testOnly="true"
-25        android:theme="@style/AppTheme"
-25-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:17:9-40
-26        android:usesCleartextTraffic="true" >
-26-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:16:9-44
-27        <activity android:name="com.examples.mobileProject.TextTranslation.TextTranslationActivity" />
-27-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-86
-27-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:19-74
-28        <activity android:name="com.examples.mobileProject.Calendar.CalendarActivity" />
-28-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-63
-28-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:19-60
-29        <activity
-29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-27:20
-30            android:name="com.examples.mobileProject.MainActivity"
-30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-47
-31            android:exported="true"
-31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:15-38
-32            android:windowSoftInputMode="adjustResize" >
-32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:15-57
-33            <intent-filter>
-33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:12-26:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:15-66
-34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:23-64
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:15-74
-36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:25-72
-37            </intent-filter>
-38        </activity>
-39    </application>
-40
-41</manifest>
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:9:5-80
+15-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:9:22-77
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:5-81
+16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:22-78
+17
+18    <application
+18-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:5-30:19
+19        android:allowBackup="true"
+19-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-43
+23        android:label="@string/tfe_tc_app_name"
+23-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:15:9-48
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:16:9-54
+25        android:supportsRtl="true"
+25-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:17:9-35
+26        android:testOnly="true"
+27        android:theme="@style/AppTheme"
+27-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-40
+28        android:usesCleartextTraffic="true" >
+28-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-44
+29        <activity android:name="com.examples.mobileProject.TextTranslation.TextTranslationActivity" />
+29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-86
+29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-74
+30        <activity android:name="com.examples.mobileProject.Calendar.CalendarActivity" />
+30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-63
+30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-60
+31        <activity
+31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:9-29:20
+32            android:name="com.examples.mobileProject.MainActivity"
+32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-47
+33            android:exported="true"
+33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-38
+34            android:windowSoftInputMode="adjustResize" >
+34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:15-57
+35            <intent-filter>
+35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:12-28:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:15-66
+36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:23-64
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:15-74
+38-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:25-72
+39            </intent-filter>
+40        </activity>
+41    </application>
+42
+43</manifest>

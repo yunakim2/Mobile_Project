@@ -4,10 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -24,7 +29,9 @@ import com.examples.mobileProject.TextTranslation.PapagoTextTranslate;
 import org.tensorflow.lite.examples.mobileProject.client.Result;
 import org.tensorflow.lite.examples.mobileProject.client.TextClassificationClient;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -38,7 +45,7 @@ public class CalendarActivity extends AppCompatActivity {
     CalendarView calendar;
     ImageView imgGallery, imgPhoto, imgTranslation;
     public static final int GET_IMG= 1000;
-    Uri imgUri;
+    Bitmap imgBitmap;
     private static Handler handler;
     private static TextClassificationClient client;
 
@@ -68,7 +75,7 @@ public class CalendarActivity extends AppCompatActivity {
                 imgTranslation = dialogView.findViewById(R.id.imgTranslation);
 
                 fileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+".txt";
-                imgfileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+"_IMG.txt";
+                imgfileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+"_IMG.png";
                 String str = readDiary(fileName);
                 readImg(imgfileName);
                 edtDiary.setText(str);
@@ -86,20 +93,26 @@ public class CalendarActivity extends AppCompatActivity {
                 imgTranslation.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        new Thread() {
-                            @Override
-                            public void run() {
-                                PapagoTextTranslate tranMode = new PapagoTextTranslate();
-                                String result ;
-                                String str = edtDiary.getText().toString();
-                                result = tranMode.getTranslation(str,"ko","en");
-                                Bundle resultBundle = new Bundle();
-                                resultBundle.putString("resultWord",result);
-                                Message msg = transper_handler.obtainMessage();
-                                msg.setData(resultBundle);
-                                transper_handler.sendMessage(msg);
-                            }
-                        }.start();
+                        String str = edtDiary.getText().toString();
+                        if(!str.isEmpty()) {
+                            new Thread() {
+                                @Override
+                                public void run() {
+                                    PapagoTextTranslate tranMode = new PapagoTextTranslate();
+                                    String result;
+
+                                    result = tranMode.getTranslation(str, "ko", "en");
+                                    Bundle resultBundle = new Bundle();
+                                    resultBundle.putString("resultWord", result);
+                                    Message msg = transper_handler.obtainMessage();
+                                    msg.setData(resultBundle);
+                                    transper_handler.sendMessage(msg);
+                                }
+                            }.start();
+                        } else {
+                                Toast.makeText(getApplicationContext(), "일기를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
 
@@ -111,11 +124,12 @@ public class CalendarActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         try{
                             FileOutputStream outFs = openFileOutput(fileName, Context.MODE_PRIVATE);
+
                             String str = edtDiary.getText().toString();
                             outFs.write(str.getBytes());
-                            if(imgUri!=null) {
+                            if(imgBitmap !=null) {
                                 FileOutputStream outImgFs = openFileOutput(imgfileName, Context.MODE_PRIVATE);
-                                outImgFs.write(imgUri.toString().getBytes());
+                                imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
                             }
                             outFs.close();
                             Toast.makeText(getApplicationContext(),fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
@@ -190,21 +204,12 @@ public class CalendarActivity extends AppCompatActivity {
         runOnUiThread(
                 () -> {
                     String textToShow = "Input: " + inputText + "\nOutput:\n";
-//
-//          Result result = results.get(0);
-//
-//          if(result.getTitle()=="Positive"){
-//              textToShow+="gooddd!";
-//          }
                     for (int i = 0; i < results.size(); i++) {
                         Result result = results.get(i);
                         textToShow += String.format("    %s: %s\n", result.getTitle(), result.getConfidence());
                     }
                     textToShow += "---------\n";
-
-                    // Append the result to the UI.
                     edtDiary.setText(textToShow);
-
                 });
     }
     @Override
@@ -212,32 +217,43 @@ public class CalendarActivity extends AppCompatActivity {
         if(requestCode == GET_IMG && resultCode == RESULT_OK && data!=null && data.getData()!=null ) {
             Uri selectedImageUri = data.getData();
             imgPhoto.setImageURI(selectedImageUri);
-            imgUri = data.getData();
+            try {
+                imgBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),selectedImageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
         super.onActivityResult(requestCode,resultCode,data);
     }
 
-    void readImg(String fName) {
-        String img = null;
+    void readImg(String fName){
         FileInputStream inFs;
         try {
             inFs = openFileInput(fName);
-            byte[] txt = new byte[500];
-            inFs.read(txt);
-            inFs.close();
-            img = (new String(txt)).trim();
-            imgPhoto.setImageURI(Uri.parse(img));
-
-
+            Bitmap bt = BitmapFactory.decodeStream(inFs);
+            if (bt != null) {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(90);
+                Bitmap scaledBitmap = Bitmap.createScaledBitmap(bt,bt.getWidth(),bt.getHeight(),true);
+                Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap,0,0,scaledBitmap.getWidth(),scaledBitmap.getHeight(),matrix,true);
+                imgPhoto.setImageBitmap(rotatedBitmap);
+            } else {
+                System.out.println("null!!!!!");
+            }
         } catch (IOException e){
-
+            System.out.println("이미지 없음");
         }
+
+
     }
     String readDiary(String fName){
         String diaryStr = null;
         FileInputStream inFs;
         try{
+            System.out.println(fName);
             inFs = openFileInput(fName);
+            System.out.println(inFs);
             byte[] txt = new byte[500];
             inFs.read(txt);
             inFs.close();
