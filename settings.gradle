@@ -1,4 +1,4 @@
-rootProject.name = 'TFLite Text Classification Demo App'
+rootProject.name = 'MobileProject'
 include ':app'
 include ':lib_task_api'
 include ':lib_interpreter'

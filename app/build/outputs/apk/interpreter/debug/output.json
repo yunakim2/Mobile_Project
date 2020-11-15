@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "org.tensorflow.lite.examples.textclassification",
+  "applicationId": "com.examples.mobileProject",
   "variantName": "interpreterDebug",
   "elements": [
     {

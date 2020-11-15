@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "org.tensorflow.lite.examples.textclassification",
+  "applicationId": "com.examples.mobileProject",
   "variantType": "BASE_APK",
   "elements": []
 }

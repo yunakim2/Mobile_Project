@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "org.tensorflow.lite.examples.textclassification",
+  "applicationId": "com.examples.mobileProject",
   "variantType": "BASE_APK",
   "elements": [
     {
@@ -19,7 +19,7 @@
       },
       "path": "resources-interpreterDebug.ap_",
       "properties": {
-        "packageId": "org.tensorflow.lite.examples.textclassification",
+        "packageId": "com.examples.mobileProject",
         "split": "",
         "minSdkVersion": "19"
       }

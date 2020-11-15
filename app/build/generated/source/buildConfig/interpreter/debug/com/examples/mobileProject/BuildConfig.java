@@ -5,7 +5,7 @@ package com.examples.mobileProject;
 
 public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");
-  public static final String APPLICATION_ID = "org.tensorflow.lite.examples.textclassification";
+  public static final String APPLICATION_ID = "com.examples.mobileProject";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "interpreter";
   public static final int VERSION_CODE = 1;
