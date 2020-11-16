@@ -1,4 +1,4 @@
-#Mon Nov 16 22:44:26 KST 2020
-base.0=C\:\\CookAndroid\\Project\\mobileProject\\mobile_project\\app\\build\\intermediates\\dex\\interpreterDebug\\mergeDexInterpreterDebug\\classes.dex
+#Mon Nov 16 23:20:56 KST 2020
+base.0=C\:\\gitprac\\mobile_project\\app\\build\\intermediates\\dex\\interpreterDebug\\mergeDexInterpreterDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

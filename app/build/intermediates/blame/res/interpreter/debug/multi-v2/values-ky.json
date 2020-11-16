@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\CookAndroid\\Project\\mobileProject\\mobile_project\\app\\build\\intermediates\\incremental\\mergeInterpreterDebugResources\\merged.dir\\values-ky\\values-ky.xml",
+            "outputFile": "C:\\gitprac\\mobile_project\\app\\build\\intermediates\\incremental\\mergeInterpreterDebugResources\\merged.dir\\values-ky\\values-ky.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jk110\\.gradle\\caches\\transforms-2\\files-2.1\\5b1aed2646b8b5f25379af823d27aa73\\core-1.1.0\\res\\values-ky\\values-ky.xml",
