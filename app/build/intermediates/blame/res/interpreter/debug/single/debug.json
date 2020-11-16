@@ -104,6 +104,10 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-xxhdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_calendar_dialog.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/calendar_dialog.xml"
+    },
+    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-xhdpi/ic_launcher_background.png"
     },
@@ -240,10 +244,6 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-ldpi/ic_launcher_background.png"
     },
     {
-        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_dialog1.xml.flat",
-        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/dialog1.xml"
-    },
-    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },
@@ -318,6 +318,10 @@
     {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable_calendar_btn_bg.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable/calendar_btn_bg.xml"
     },
     {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-anydpi-v21_ic_baseline_add_photo_alternate_24.xml.flat",

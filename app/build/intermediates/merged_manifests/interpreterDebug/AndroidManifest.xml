@@ -27,7 +27,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
-        <activity android:name="com.examples.mobileProject.calendar.CalendarActivity" />
         <activity
             android:name="com.examples.mobileProject.main.MainActivity"
             android:exported="true"

@@ -21,9 +21,11 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.examples.mobileProject.R;
@@ -47,7 +49,9 @@ public class CalendarFragment extends Fragment {
     View dialogView;
     EditText edtDiary;
     CalendarView calendar;
-    ImageView imgGallery, imgPhoto, imgTranslation;
+    TextView tvDlgTitle;
+    Button btnDlgOK, btnDlgCancel, btnDlgAnalysis;
+    ImageView imgGallery, imgPhoto, imgEmotion;
     public static final int GET_IMG= 1000;
     Bitmap imgBitmap;
     private static Handler handler;
@@ -78,30 +82,49 @@ public class CalendarFragment extends Fragment {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Toast.makeText(getContext(), year+"년"+month+"월"+dayOfMonth+"일", Toast.LENGTH_SHORT).show();
                 curDay = dayOfMonth; curMonth = month+1; curYear = year;
-                dialogView = (View) View.inflate(getContext(), R.layout.dialog1, null);
+                dialogView = (View) View.inflate(getContext(), R.layout.calendar_dialog, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
+                AlertDialog dialog = dlg.create();
                 edtDiary = dialogView.findViewById(R.id.edtDiary);
                 imgGallery = dialogView.findViewById(R.id.imgGallery);
                 imgPhoto =  dialogView.findViewById(R.id.imgPhoto);
-                imgTranslation = dialogView.findViewById(R.id.imgTranslation);
-
-                fileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+".txt";
-                imgfileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+"_IMG.png";
-                String str = readDiary(fileName);
-                readImg(imgfileName);
-                edtDiary.setText(str);
-
-                imgGallery.setOnClickListener(new View.OnClickListener(){
+                imgEmotion = dialogView.findViewById(R.id.imgEmotion);
+                tvDlgTitle = dialogView.findViewById(R.id.tvDate);
+                btnDlgOK = dialogView.findViewById(R.id.btnOK);
+                btnDlgCancel = dialogView.findViewById(R.id.btnCancle);
+                btnDlgAnalysis = dialogView.findViewById(R.id.btnAnalysis);
+                dialog.setView(dialogView);
+                String date = Integer.toString(curYear)+"년 "+Integer.toString(curMonth)+"월 "+Integer.toString(curDay)+"일";
+                dialog.show();
+                tvDlgTitle.setText(date);
+                btnDlgOK.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(Intent.ACTION_PICK);
-                        intent. setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                        startActivityForResult(intent,GET_IMG);
+                        try{
+                            FileOutputStream outFs = getActivity().openFileOutput(fileName, Context.MODE_PRIVATE);
 
+                            String str = edtDiary.getText().toString();
+                            outFs.write(str.getBytes());
+                            if(imgBitmap !=null) {
+                                FileOutputStream outImgFs = getActivity().openFileOutput(imgfileName, Context.MODE_PRIVATE);
+                                imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
+                            }
+                            outFs.close();
+                            Toast.makeText(getContext(),fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (IOException e){
+                            Toast.makeText(getContext(),"err", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                btnDlgCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
                     }
                 });
 
-                imgTranslation.setOnClickListener(new View.OnClickListener() {
+                btnDlgAnalysis.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         String str = edtDiary.getText().toString();
@@ -123,40 +146,26 @@ public class CalendarFragment extends Fragment {
                         } else {
                             Toast.makeText(getContext(), "일기를 입력해주세요!", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
 
-                dlg.setTitle(curYear+"년 "+curMonth+"월 "+curDay+"일");
-                dlg.setIcon(R.drawable.cat);
-                dlg.setView(dialogView);
-                dlg.setPositiveButton("저장", new DialogInterface.OnClickListener() {
+                fileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+".txt";
+                imgfileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+"_IMG.png";
+                String str = readDiary(fileName);
+                readImg(imgfileName);
+                edtDiary.setText(str);
+
+                imgGallery.setOnClickListener(new View.OnClickListener(){
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        try{
-                            FileOutputStream outFs = getActivity().openFileOutput(fileName, Context.MODE_PRIVATE);
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_PICK);
+                        intent. setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                        startActivityForResult(intent,GET_IMG);
 
-                            String str = edtDiary.getText().toString();
-                            outFs.write(str.getBytes());
-                            if(imgBitmap !=null) {
-                                FileOutputStream outImgFs = getActivity().openFileOutput(imgfileName, Context.MODE_PRIVATE);
-                                imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
-                            }
-                            outFs.close();
-                            Toast.makeText(getContext(),fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
-                        }
-                        catch (IOException e){
-                            Toast.makeText(getContext(),"err", Toast.LENGTH_SHORT).show();
-                        }
                     }
                 });
-                dlg.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                dlg.show();
+
+
 
             }
         });

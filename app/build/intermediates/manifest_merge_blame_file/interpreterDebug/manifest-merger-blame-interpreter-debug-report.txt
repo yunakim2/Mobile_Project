@@ -30,7 +30,7 @@
 16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:22-78
 17
 18    <application
-18-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:5-30:19
+18-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:5-29:19
 19        android:allowBackup="true"
 19-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -52,28 +52,25 @@
 29        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
 29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-86
 29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-74
-30        <activity android:name="com.examples.mobileProject.calendar.CalendarActivity" />
-30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-63
-30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-60
-31        <activity
-31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:9-29:20
-32            android:name="com.examples.mobileProject.main.MainActivity"
-32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-52
-33            android:exported="true"
-33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-38
-34            android:windowSoftInputMode="adjustResize" >
-34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:15-57
-35            <intent-filter>
-35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:12-28:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:15-66
-36-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:23-64
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:15-74
-38-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:25-72
-39            </intent-filter>
-40        </activity>
-41    </application>
-42
-43</manifest>
+30        <activity
+30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-28:20
+31            android:name="com.examples.mobileProject.main.MainActivity"
+31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-52
+32            android:exported="true"
+32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:15-38
+33            android:windowSoftInputMode="adjustResize" >
+33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-57
+34            <intent-filter>
+34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:12-27:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:15-66
+35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:23-64
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:15-74
+37-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:25-72
+38            </intent-filter>
+39        </activity>
+40    </application>
+41
+42</manifest>
