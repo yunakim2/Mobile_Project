@@ -679,6 +679,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable calendar_btn_bg
 drawable calendar_dlg_bg
 drawable calendar_edit_bg
 drawable calendar_img_bg
@@ -780,6 +781,9 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnAnalysis
+id btnCancle
+id btnOK
 id btnTrans
 id button
 id buttonPanel
@@ -830,9 +834,10 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imgDlgIcon
+id imgEmotion
 id imgGallery
 id imgPhoto
-id imgTranslation
 id img_main_analysis
 id img_main_calendar
 id info
@@ -919,7 +924,9 @@ id title_template
 id top
 id topPanel
 id transTitle
+id tvCalSubTitle
 id tvCalTitle
+id tvDate
 id tvTransText
 id unchecked
 id uniform
@@ -973,8 +980,8 @@ layout activity_analization
 layout activity_calendar
 layout activity_main
 layout activity_text_translation
+layout calendar_dialog
 layout custom_dialog
-layout dialog1
 layout fragment_analysis
 layout fragment_calendar
 layout notification_action

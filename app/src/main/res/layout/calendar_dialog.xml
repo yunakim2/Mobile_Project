@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/calendar_dlg_bg"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingVertical="10dp">
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imgDlgIcon"
+        android:src="@drawable/ic_baseline_calendar_today_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDate"
+        android:text="00월 00일 00년"
+        android:textSize="15sp"
+        android:layout_marginLeft="8dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorBlack"
+        android:fontFamily="@font/notosanskr_medium"
+        app:layout_constraintTop_toTopOf="@id/imgDlgIcon"
+        app:layout_constraintBottom_toBottomOf="@id/imgDlgIcon"
+        app:layout_constraintLeft_toRightOf="@id/imgDlgIcon"/>
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/imgEmotion"
+        android:src="@color/colorBrown"
+        app:layout_constraintTop_toBottomOf="@id/tvDate"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/clCalendarIMG"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/imgEmotion"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/calendar_img_bg">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imgGallery"
+            android:src="@drawable/ic_baseline_add_photo_alternate_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgPhoto"
+            android:adjustViewBounds="true"
+            android:maxHeight="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCalTitle"
+        android:text="오늘의 한마디"
+        android:textSize="13sp"
+        android:includeFontPadding="false"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorBlack"
+        android:fontFamily="@font/notosanskr_medium"
+        app:layout_constraintTop_toBottomOf="@id/clCalendarIMG"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <EditText
+        android:id="@+id/edtDiary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="일기내용"
+        android:textSize="12sp"
+        android:background="@drawable/calendar_edit_bg"
+        android:maxLines="5"
+        android:lines="5"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/colorGrey"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@id/tvCalTitle" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/btnOK"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/calendar_btn_bg"
+        app:layout_constraintTop_toBottomOf="@id/edtDiary"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="일기 저장"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textSize="12sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/btnCancle"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/calendar_btn_bg"
+        app:layout_constraintTop_toTopOf="@id/btnOK"
+        app:layout_constraintBottom_toBottomOf="@id/btnOK"
+        app:layout_constraintRight_toLeftOf="@id/btnOK"
+        android:text="취소"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textSize="12sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/btnAnalysis"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorBrown"
+        app:layout_constraintTop_toTopOf="@id/btnOK"
+        app:layout_constraintBottom_toBottomOf="@id/btnOK"
+        app:layout_constraintRight_toLeftOf="@id/btnCancle"
+        android:text="감정 분석"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textSize="12sp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
