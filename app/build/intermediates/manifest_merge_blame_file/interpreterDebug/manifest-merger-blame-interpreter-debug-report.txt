@@ -49,16 +49,16 @@
 27-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-40
 28        android:usesCleartextTraffic="true" >
 28-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-44
-29        <activity android:name="com.examples.mobileProject.TextTranslation.TextTranslationActivity" />
+29        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
 29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-86
 29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-74
-30        <activity android:name="com.examples.mobileProject.Calendar.CalendarActivity" />
+30        <activity android:name="com.examples.mobileProject.calendar.CalendarActivity" />
 30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-63
 30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-60
 31        <activity
 31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:9-29:20
-32            android:name="com.examples.mobileProject.MainActivity"
-32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-47
+32            android:name="com.examples.mobileProject.main.MainActivity"
+32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-52
 33            android:exported="true"
 33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-38
 34            android:windowSoftInputMode="adjustResize" >

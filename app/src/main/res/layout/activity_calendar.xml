@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calendar.CalendarActivity">
+    tools:context=".calendar.CalendarActivity">
 
 
     <CalendarView
@@ -27,4 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="0dp" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

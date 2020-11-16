@@ -4,25 +4,36 @@ ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/And
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-31:12
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-31:12
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-31:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/11c6742017f601850eb97b23dd5d321f/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1825ac6eed6a6de43b4d934473c06548/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [:lib_interpreter] /Users/kim-yuna/AndroidStudioProjects/mobile_project/lib_interpreter/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.media:media:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d2d88ba7e40d9cfb90f9e376125b1538/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d6c85e16e844c362afdf187d65daaf94/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0b6878f6e82a5a6ee2b074af432b6c89/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1d4ad92943b8a9df537d425ef897a5fa/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0fee7319bd54b8bb34570f14ade9452e/appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/95778604bdd673a1e14ab92b7f64cb28/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/362429b9338e47e2e2d0328648e1fb17/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d5cd947fedfe176a3bfb9e7b38e4834f/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2203d55c3f261d1c7ae6e89768391917/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f8a2effe1e5d6046473325f84177fb0b/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ed451cc4d09b26a6ea83cf6a3596dafe/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/9eefdb88b63b37fd349209aca7f7b23e/activity-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f84035897277904b8b3f9eeaa7da1168/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2cb3e519c16fe03f9a562a320701ef0e/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b478771b428087eae14df2886489fe75/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/36cbf476a59ad642fb1e7854db6617fa/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/7a6775fe7c8972620dcad7ae84913b06/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/06110a81f185982fb68950e41e5c6f00/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/aa9749faa259b18622b7378492f6407f/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/506c4f9ab32c7e7f99fabd35e02a48aa/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6f6ea90712354ee3ae4b7037a24eb021/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b4779a0c796368432029b3dda334a815/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2f1fa0e5d7d9a694787f18d0d7c66421/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2b17603fe82ccc621cd74433637ce482/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/42aa583b1d129048a33513f30cefe81b/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
@@ -94,22 +105,22 @@ MERGED from [org.tensorflow:tensorflow-lite:2.2.0] /Users/kim-yuna/.gradle/cache
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-40
 	android:usesCleartextTraffic
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-44
-activity#com.examples.mobileProject.TextTranslation.TextTranslationActivity
+activity#com.examples.mobileProject.texttranslation.TextTranslationActivity
 ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-86
 	android:name
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-74
-activity#com.examples.mobileProject.Calendar.CalendarActivity
+activity#com.examples.mobileProject.calendar.CalendarActivity
 ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-63
 	android:name
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-60
-activity#com.examples.mobileProject.MainActivity
+activity#com.examples.mobileProject.main.MainActivity
 ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:9-29:20
 	android:windowSoftInputMode
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:15-57
 	android:exported
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-38
 	android:name
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-47
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:12-28:29
 action#android.intent.action.MAIN
@@ -124,34 +135,58 @@ uses-sdk
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/11c6742017f601850eb97b23dd5d321f/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/11c6742017f601850eb97b23dd5d321f/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1825ac6eed6a6de43b4d934473c06548/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1825ac6eed6a6de43b4d934473c06548/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [:lib_interpreter] /Users/kim-yuna/AndroidStudioProjects/mobile_project/lib_interpreter/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:lib_interpreter] /Users/kim-yuna/AndroidStudioProjects/mobile_project/lib_interpreter/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.media:media:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d2d88ba7e40d9cfb90f9e376125b1538/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d2d88ba7e40d9cfb90f9e376125b1538/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d6c85e16e844c362afdf187d65daaf94/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d6c85e16e844c362afdf187d65daaf94/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0b6878f6e82a5a6ee2b074af432b6c89/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0b6878f6e82a5a6ee2b074af432b6c89/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1d4ad92943b8a9df537d425ef897a5fa/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1d4ad92943b8a9df537d425ef897a5fa/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0fee7319bd54b8bb34570f14ade9452e/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/0fee7319bd54b8bb34570f14ade9452e/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/95778604bdd673a1e14ab92b7f64cb28/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/95778604bdd673a1e14ab92b7f64cb28/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/362429b9338e47e2e2d0328648e1fb17/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/362429b9338e47e2e2d0328648e1fb17/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ab4d835404d32c25fc8ccfb4436c6f67/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d5cd947fedfe176a3bfb9e7b38e4834f/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/d5cd947fedfe176a3bfb9e7b38e4834f/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2203d55c3f261d1c7ae6e89768391917/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2203d55c3f261d1c7ae6e89768391917/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f8a2effe1e5d6046473325f84177fb0b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f8a2effe1e5d6046473325f84177fb0b/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ed451cc4d09b26a6ea83cf6a3596dafe/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/ed451cc4d09b26a6ea83cf6a3596dafe/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/9eefdb88b63b37fd349209aca7f7b23e/activity-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/9eefdb88b63b37fd349209aca7f7b23e/activity-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f84035897277904b8b3f9eeaa7da1168/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/f84035897277904b8b3f9eeaa7da1168/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2cb3e519c16fe03f9a562a320701ef0e/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2cb3e519c16fe03f9a562a320701ef0e/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b4ac0059ab82201dd29f12308b537a1/customview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b478771b428087eae14df2886489fe75/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b478771b428087eae14df2886489fe75/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/36cbf476a59ad642fb1e7854db6617fa/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/36cbf476a59ad642fb1e7854db6617fa/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/7a6775fe7c8972620dcad7ae84913b06/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/7a6775fe7c8972620dcad7ae84913b06/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/06110a81f185982fb68950e41e5c6f00/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/06110a81f185982fb68950e41e5c6f00/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/aa9749faa259b18622b7378492f6407f/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/aa9749faa259b18622b7378492f6407f/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/506c4f9ab32c7e7f99fabd35e02a48aa/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
@@ -160,8 +195,6 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/kim-yuna/.grad
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6f6ea90712354ee3ae4b7037a24eb021/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b4779a0c796368432029b3dda334a815/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/b4779a0c796368432029b3dda334a815/savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2c9ff60203da0dc7bdb72d2b21b2cf0f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2f1fa0e5d7d9a694787f18d0d7c66421/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2f1fa0e5d7d9a694787f18d0d7c66421/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2b17603fe82ccc621cd74433637ce482/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
