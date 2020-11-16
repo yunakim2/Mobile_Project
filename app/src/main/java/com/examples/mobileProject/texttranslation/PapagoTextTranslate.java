@@ -1,4 +1,4 @@
-package com.examples.mobileProject.TextTranslation;
+package com.examples.mobileProject.texttranslation;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

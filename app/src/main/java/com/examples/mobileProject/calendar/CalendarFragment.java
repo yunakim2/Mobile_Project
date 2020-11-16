@@ -1,4 +1,4 @@
-package com.examples.mobileProject.Calendar;
+package com.examples.mobileProject.calendar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,35 +8,39 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.examples.mobileProject.R;
-import com.examples.mobileProject.TextTranslation.PapagoTextTranslate;
+import com.examples.mobileProject.texttranslation.PapagoTextTranslate;
+
 import org.tensorflow.lite.examples.mobileProject.client.Result;
 import org.tensorflow.lite.examples.mobileProject.client.TextClassificationClient;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class CalendarActivity extends AppCompatActivity {
+import static android.app.Activity.RESULT_OK;
+
+
+public class CalendarFragment extends Fragment {
 
     String fileName,imgfileName;
     static int curDay, curMonth, curYear;
@@ -51,24 +55,31 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendar);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_calendar, container, false);
+    }
 
-         calendar = (CalendarView)findViewById(R.id.calendarView);
-        client = new TextClassificationClient(getApplicationContext());
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        calendar = (CalendarView)getView().findViewById(R.id.calendarView);
+        client = new TextClassificationClient(getContext());
         handler = new Handler();
         initCalendarDlg();
 
     }
+
     private void initCalendarDlg() {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getApplicationContext(), year+"년"+month+"월"+dayOfMonth+"일", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), year+"년"+month+"월"+dayOfMonth+"일", Toast.LENGTH_SHORT).show();
                 curDay = dayOfMonth; curMonth = month+1; curYear = year;
-                dialogView = (View) View.inflate(CalendarActivity.this, R.layout.dialog1, null);
-                AlertDialog.Builder dlg = new AlertDialog.Builder(CalendarActivity.this);
+                dialogView = (View) View.inflate(getContext(), R.layout.dialog1, null);
+                AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
                 edtDiary = dialogView.findViewById(R.id.edtDiary);
                 imgGallery = dialogView.findViewById(R.id.imgGallery);
                 imgPhoto =  dialogView.findViewById(R.id.imgPhoto);
@@ -110,7 +121,7 @@ public class CalendarActivity extends AppCompatActivity {
                                 }
                             }.start();
                         } else {
-                                Toast.makeText(getApplicationContext(), "일기를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "일기를 입력해주세요!", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -123,19 +134,19 @@ public class CalendarActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try{
-                            FileOutputStream outFs = openFileOutput(fileName, Context.MODE_PRIVATE);
+                            FileOutputStream outFs = getActivity().openFileOutput(fileName, Context.MODE_PRIVATE);
 
                             String str = edtDiary.getText().toString();
                             outFs.write(str.getBytes());
                             if(imgBitmap !=null) {
-                                FileOutputStream outImgFs = openFileOutput(imgfileName, Context.MODE_PRIVATE);
+                                FileOutputStream outImgFs = getActivity().openFileOutput(imgfileName, Context.MODE_PRIVATE);
                                 imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
                             }
                             outFs.close();
-                            Toast.makeText(getApplicationContext(),fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
                         }
                         catch (IOException e){
-                            Toast.makeText(getApplicationContext(),"err", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),"err", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -150,7 +161,6 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
     }
-
     @SuppressLint("HandlerLeak")
     Handler transper_handler = new Handler() {
         @Override
@@ -173,7 +183,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
         handler.post(
@@ -182,7 +192,7 @@ public class CalendarActivity extends AppCompatActivity {
                 });
     }
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         handler.post(
                 () -> {
@@ -201,24 +211,23 @@ public class CalendarActivity extends AppCompatActivity {
     }
     private void showResult(final String inputText, final List<Result> results) {
         // Run on UI thread as we'll updating our app UI
-        runOnUiThread(
-                () -> {
-                    String textToShow = "Input: " + inputText + "\nOutput:\n";
-                    for (int i = 0; i < results.size(); i++) {
-                        Result result = results.get(i);
-                        textToShow += String.format("    %s: %s\n", result.getTitle(), result.getConfidence());
-                    }
-                    textToShow += "---------\n";
-                    edtDiary.setText(textToShow);
-                });
+        getActivity().runOnUiThread( () -> {
+            String textToShow = "Input: " + inputText + "\nOutput:\n";
+            for (int i = 0; i < results.size(); i++) {
+                Result result = results.get(i);
+                textToShow += String.format("    %s: %s\n", result.getTitle(), result.getConfidence());
+            }
+            textToShow += "---------\n";
+            edtDiary.setText(textToShow);
+        });
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == GET_IMG && resultCode == RESULT_OK && data!=null && data.getData()!=null ) {
             Uri selectedImageUri = data.getData();
             imgPhoto.setImageURI(selectedImageUri);
             try {
-                imgBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),selectedImageUri);
+                imgBitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),selectedImageUri);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -230,7 +239,7 @@ public class CalendarActivity extends AppCompatActivity {
     void readImg(String fName){
         FileInputStream inFs;
         try {
-            inFs = openFileInput(fName);
+            inFs = getActivity().openFileInput(fName);
             Bitmap bt = BitmapFactory.decodeStream(inFs);
             if (bt != null) {
                 Matrix matrix = new Matrix();
@@ -247,12 +256,13 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     }
+
     String readDiary(String fName){
         String diaryStr = null;
         FileInputStream inFs;
         try{
             System.out.println(fName);
-            inFs = openFileInput(fName);
+            inFs = getActivity().openFileInput(fName);
             System.out.println(inFs);
             byte[] txt = new byte[500];
             inFs.read(txt);
@@ -264,5 +274,6 @@ public class CalendarActivity extends AppCompatActivity {
         }
         return diaryStr;
     }
+
 
 }

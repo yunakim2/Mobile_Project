@@ -1,4 +1,4 @@
-package com.examples.mobileProject.TextTranslation;
+package com.examples.mobileProject.texttranslation;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
