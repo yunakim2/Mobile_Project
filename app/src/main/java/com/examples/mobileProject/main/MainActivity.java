@@ -64,12 +64,9 @@ public class MainActivity extends AppCompatActivity {
             if (menus.index == tapnum) {
                 menus.img.setSelected(true);
                 menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorBrown));
-//                menus.img.setBackgroundColor(Color.parseColor("#998E7D"));
             } else {
                 menus.img.setSelected(false);
-//                menus.img.setColorFilter(R.color.colorPrimary);
                 menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
-//                menus.img.setBackgroundColor(Color.parseColor("#E6C0BE"));
 
             }
         }
