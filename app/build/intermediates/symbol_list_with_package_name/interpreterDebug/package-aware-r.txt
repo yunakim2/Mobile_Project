@@ -684,6 +684,8 @@ drawable calendar_dlg_bg
 drawable calendar_edit_bg
 drawable calendar_img_bg
 drawable cat
+drawable happy_brown
+drawable happy_pink
 drawable ic_baseline_add_photo_alternate_24
 drawable ic_baseline_assessment_24
 drawable ic_baseline_calendar_today_24
@@ -705,6 +707,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable sad_brown
+drawable sad_pink
 drawable tfl2_logo
 drawable tfl2_logo_dark
 drawable tooltip_frame_dark
@@ -932,7 +936,6 @@ id unchecked
 id uniform
 id up
 id useLogo
-id view2
 id withText
 id wrap
 id wrap_content
@@ -977,7 +980,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_analization
-layout activity_calendar
 layout activity_main
 layout activity_text_translation
 layout calendar_dialog
