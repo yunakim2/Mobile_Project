@@ -1,4 +1,4 @@
-#Mon Nov 16 15:36:20 KST 2020
+#Tue Nov 17 15:14:23 KST 2020
 base.0=/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/dex/interpreterDebug/mergeDexInterpreterDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
