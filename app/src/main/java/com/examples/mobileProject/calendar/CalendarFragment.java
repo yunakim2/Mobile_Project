@@ -267,7 +267,7 @@ public class CalendarFragment extends Fragment {
     }
     private void initEmoji(float resPos, float resNeg) {
         if(resPos>resNeg) {
-            if(resNeg>=0.4) {
+            if(resNeg>=0.5) {
                 imgEmotion.setImageDrawable(getResources().getDrawable(sad_brown));
             } else {
                 imgEmotion.setImageDrawable(getResources().getDrawable(happy_pink));

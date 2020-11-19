@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".analysis.AnalysisChartActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:id="@+id/tvChartTitle1"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_medium"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="당신의 "
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:id="@+id/tvChartTitle"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_bold"
+        android:layout_marginBottom="20dp"
+        android:text="최근 일주일"
+        android:background="@color/colorWhiteGrey"
+        app:layout_constraintLeft_toRightOf="@id/tvChartTitle1"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:id="@+id/tvChartTitle2"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/notosanskr_medium"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="감정 분석 결과 입니다 :-)"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChartTitle1"
+        />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/chartBar"
+        app:layout_constraintTop_toBottomOf="@id/tvChartTitle2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

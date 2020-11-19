@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-mdpi/ic_launcher_background.png"
-    },
-    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-mdpi_ic_baseline_translate_24.png.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-mdpi/ic_baseline_translate_24.png"
+    },
+    {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-mdpi/ic_launcher_background.png"
     },
     {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-xhdpi_ic_baseline_assessment_24.png.flat",
@@ -188,6 +188,10 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-xxhdpi/item_recycler_bg_brown.xml"
     },
     {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_activity_analysis_chart.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/activity_analysis_chart.xml"
+    },
+    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/font_notosanskr_regular.otf.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/font/notosanskr_regular.otf"
     },
@@ -252,12 +256,12 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-v24/happy_pink.png"
     },
     {
-        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_calendar_dialog.xml.flat",
-        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/calendar_dialog.xml"
-    },
-    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable_item_recycler_bg_pink.xml.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable/item_recycler_bg_pink.xml"
+    },
+    {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_calendar_dialog.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/calendar_dialog.xml"
     },
     {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/mipmap-xxhdpi_ic_launcher.png.flat",
@@ -288,12 +292,12 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-xxhdpi/ic_baseline_assessment_24.png"
     },
     {
-        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-mdpi_ic_launcher.png.flat",
-        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-mdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-xhdpi_ic_baseline_fact_check_24.png.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-xhdpi/ic_baseline_fact_check_24.png"
+    },
+    {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/font_notosanskr_bold.otf.flat",
