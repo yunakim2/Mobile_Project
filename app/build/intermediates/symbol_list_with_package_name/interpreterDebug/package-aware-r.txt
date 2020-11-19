@@ -1009,7 +1009,6 @@ layout calendar_dialog
 layout custom_dialog
 layout fragment_analysis
 layout fragment_calendar
-layout item_analysis_list
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
