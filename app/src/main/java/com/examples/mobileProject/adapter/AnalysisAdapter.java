@@ -57,6 +57,14 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
             this.icon = view.findViewById(R.id.imgRecyclerIcon);
             this.emoji = view.findViewById(R.id.imgEmoji);
 
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = getAdapterPosition();
+                    if(pos!= RecyclerView.NO_POSITION) mListener.onItemClick(view, pos);
+                }
+            });
+
         }
     }
 
@@ -65,5 +73,16 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
         this.context = context;
 
     }
+    public interface OnItemClickListener
+    {
+        void onItemClick(View v, int pos);
+    }
+    // 리스너 객체 참조를 저장하는 변수
+    private OnItemClickListener mListener = null;
 
+    // OnItemClickListener 객체 참조를 어댑터에 전달하는 메서드
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+        this.mListener = listener;
+    }
 }

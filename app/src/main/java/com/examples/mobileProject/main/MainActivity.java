@@ -74,10 +74,14 @@ public class MainActivity extends AppCompatActivity {
         for (Menus menus : list) {
             if (menus.index == tapnum) {
                 menus.img.setSelected(true);
-                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorBrown));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+                    menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorBrown));
+                }
             } else {
                 menus.img.setSelected(false);
-                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+                    menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
+                }
 
             }
         }
