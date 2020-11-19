@@ -816,6 +816,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chartBar
 id checkbox
 id checked
 id chronometer
@@ -955,6 +956,9 @@ id topPanel
 id transTitle
 id tvCalSubTitle
 id tvCalTitle
+id tvChartTitle
+id tvChartTitle1
+id tvChartTitle2
 id tvDate
 id tvLogo
 id tvRecyclerTitle
@@ -1008,6 +1012,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_analization
+layout activity_analysis_chart
 layout activity_main
 layout activity_splash
 layout activity_text_translation

@@ -1,6 +1,6 @@
 package com.examples.mobileProject.analysis;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,20 +20,13 @@ import android.widget.Toast;
 
 import com.examples.mobileProject.R;
 import com.examples.mobileProject.adapter.AnalysisAdapter;
-import com.examples.mobileProject.calendar.CalendarFragment;
 import com.examples.mobileProject.calendar.myDBHelper;
-import com.examples.mobileProject.calendar.CalendarFragment;
-import com.examples.mobileProject.analysis.AnalysisTotalData;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
-import java.util.Locale;
-
 
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -43,14 +36,14 @@ public class AnalysisFragment extends Fragment {
     SQLiteDatabase sqlDB;
     RecyclerView mRecyclerView = null ;
     AnalysisAdapter mAdapter = null ;
-    @SuppressLint("ResourceType") ArrayList<AnalysisData> analysis = new ArrayList<AnalysisData>();
+    ArrayList<AnalysisData> analysis = new ArrayList<AnalysisData>();
 
-    @SuppressLint("ResourceType")
+    ArrayList<AnalysisDayData> weekData_1 = new ArrayList<AnalysisDayData>();
+    ArrayList<AnalysisDayData> weekData_2 = new ArrayList<AnalysisDayData>();
+    ArrayList<AnalysisDayData> weekData_3 = new ArrayList<AnalysisDayData>();
+    ArrayList<AnalysisDayData> weekData_4 = new ArrayList<AnalysisDayData>();
 
-    public static ArrayList<Integer> aryDate = new ArrayList();
     public static ArrayList<AnalysisDayData> weekData = new ArrayList<AnalysisDayData>();
-    public static AnalysisTotalData totalData;
-    public static ArrayList<AnalysisTotalData> totalDataAry = new ArrayList<AnalysisTotalData>();
     public static int currentDate, currentMonth, currentYear;
 
 
@@ -59,8 +52,6 @@ public class AnalysisFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myHelper = new myDBHelper(getContext());;
-
-
         return inflater.inflate(R.layout.fragment_analysis, container, false);
     }
 
@@ -71,18 +62,34 @@ public class AnalysisFragment extends Fragment {
         mRecyclerView = requireView().findViewById(R.id.recycler1);
         mAdapter = new AnalysisAdapter(analysis,getContext());
 
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext())) ;
-        mAdapter.notifyDataSetChanged() ;
-
         mAdapter.setOnItemClickListener(new AnalysisAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
                 Toast.makeText(getContext(),"pos : "+pos,Toast.LENGTH_SHORT).show();
-                //todo.
+                Intent intent = new Intent(getContext(),AnalysisChartActivity.class);
+                if(pos == 0) {
+                    intent.putExtra("datas",weekData_1);
+                }
+                if(pos == 1) {
+                    intent.putExtra("datas",weekData_2);
+                }
+                if(pos == 2) {
+                    intent.putExtra("datas",weekData_2);
+                }
+                if(pos == 3) {
+                    intent.putExtra("datas",weekData_3);
+                }
+                if(pos == 4) {
+                    intent.putExtra("datas",weekData_4);
+                }
+                startActivity(intent);
 
             }
         });
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext())) ;
+        mAdapter.notifyDataSetChanged() ;
+
         if(!isCreated) collectDates();
         isCreated = true;
     }
@@ -129,12 +136,7 @@ public class AnalysisFragment extends Fragment {
         return 0;
     }
     private void sortDates(){
-        ArrayList<AnalysisDayData> weekData_1 = new ArrayList<AnalysisDayData>();
-        ArrayList<AnalysisDayData> weekData_2 = new ArrayList<AnalysisDayData>();
-        ArrayList<AnalysisDayData> weekData_3 = new ArrayList<AnalysisDayData>();
-        ArrayList<AnalysisDayData> weekData_4 = new ArrayList<AnalysisDayData>();
 
-        ArrayList<AnalysisTotalData> totalData_1 = new ArrayList<AnalysisTotalData>();
 
         String getDayStr, inputStr;
         String curDateStr = Integer.toString(currentYear)+"-"+Integer.toString(currentMonth)+"-"+Integer.toString(currentDate);
@@ -142,55 +144,37 @@ public class AnalysisFragment extends Fragment {
 
         for(int i =0 ; i<weekData.size();i++) {
             getDayStr = Integer.toString(weekData.get(i).date); //format 맞춰줘야함 (yyyy-mm-dd)
-            inputStr = getDayStr.toString();
-            inputStr = inputStr.substring(0,3)+"0-"+inputStr.substring(3,5)+"-"+inputStr.substring(5,7);
-            System.out.println(inputStr);
+            inputStr = getDayStr.substring(0,3)+"0-"+getDayStr.substring(3,5)+"-"+getDayStr.substring(5,7);
+
             System.out.println(curDateStr);
-
-
+            System.out.println(inputStr);
             sub = calcDateBetweenAnB(curDateStr, inputStr);
-            System.out.println(sub);
-
-
-            if(sub<0) ;
-            else if(sub<7) weekData_1.add(weekData.get(i));
+            if(sub<7) weekData_1.add(weekData.get(i));
             else if(sub<14) weekData_2.add(weekData.get(i));
             else if(sub<21) weekData_3.add(weekData.get(i));
             else if(sub<28) weekData_4.add(weekData.get(i));
-            else ;
-            System.out.println(weekData_1);
       }
 
-        if(!weekData_1.isEmpty()) totalDataAry.add(new AnalysisTotalData(weekData_1,1));
-        if(!weekData_2.isEmpty()) totalDataAry.add(new AnalysisTotalData(weekData_2,2));
-        if(!weekData_3.isEmpty()) totalDataAry.add(new AnalysisTotalData(weekData_3,3));
-        if(!weekData_4.isEmpty()) totalDataAry.add(new AnalysisTotalData(weekData_4,4));
-
-        initRecycler();
-
-    }
+        System.out.println(weekData_1.size());
+        System.out.println(weekData_2.size());
+        System.out.println(weekData_3.size());
+        System.out.println(weekData_4.size());
 
 
+        if(weekData_1.size()!=0) {
+            analysis.add( new AnalysisData("최근 일주일",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
 
-    private void initRecycler() {
-        System.out.println("totarysize : "+totalDataAry.size());
-        for (int i =0 ; i<totalDataAry.size(); i++ ) {
-            if(totalDataAry.get(i).week==1) {
-                analysis.add( new AnalysisData("최근 일주일",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
-            }
-            else if (totalDataAry.get(i).week==2)
-            {
-                analysis.add( new AnalysisData("지난 2주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
-            }
-            else if (totalDataAry.get(i).week==3)
-            {
-                analysis.add( new AnalysisData("지난 3주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
-            }
-            else if (totalDataAry.get(i).week==4)
-            {
-                analysis.add( new AnalysisData("지난 4주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
-            }
+        }
+        if(weekData_2.size()!=0) {
+            analysis.add( new AnalysisData("지난 2주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink)));
+
+        }
+        if(weekData_3.size()!=0) {
+            analysis.add( new AnalysisData("지난 3주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
+
+        }
+        if(weekData_4.size()!=0) {
+            analysis.add( new AnalysisData("지난 4주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink)));
         }
     }
-
 }

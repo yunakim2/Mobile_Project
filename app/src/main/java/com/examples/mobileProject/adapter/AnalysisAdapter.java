@@ -64,7 +64,6 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
                     if(pos!= RecyclerView.NO_POSITION) mListener.onItemClick(view, pos);
                 }
             });
-
         }
     }
 
