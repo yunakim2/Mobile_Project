@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/11c6742017f601850eb97b23dd5d321f/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/1825ac6eed6a6de43b4d934473c06548/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
@@ -39,25 +39,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/kim-yuna/.gradl
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/2b17603fe82ccc621cd74433637ce482/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/42aa583b1d129048a33513f30cefe81b/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.tensorflow:tensorflow-lite:2.2.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/280410e05ac967598c00570ad28b1269/tensorflow-lite-2.2.0/AndroidManifest.xml:2:1-12:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
-INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
 	package
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:3:5-41
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-30:12
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:1-35:12
 		INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:5:5-66
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
@@ -81,7 +81,7 @@ ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/And
 	android:name
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:22-78
 application
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:5-29:19
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:12:5-33:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/6cbd4175e3ba309eeb3018cf3ddf3176/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:24:5-89
@@ -97,37 +97,41 @@ MERGED from [org.tensorflow:tensorflow-lite:2.2.0] /Users/kim-yuna/.gradle/cache
 	android:label
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:15:9-48
 	android:roundIcon
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:16:9-54
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:16:9-49
 	android:icon
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-43
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-44
 	android:allowBackup
 		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-40
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-40
 	android:usesCleartextTraffic
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-44
-activity#com.examples.mobileProject.texttranslation.TextTranslationActivity
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-86
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-44
+activity#com.examples.mobileProject.main.SplashActivity
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-26:20
 	android:name
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-74
-activity#com.examples.mobileProject.main.MainActivity
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-28:20
-	android:windowSoftInputMode
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:15-57
-	android:exported
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:15-38
-	android:name
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-52
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:19-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:12-27:29
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:15-66
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:23-64
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:15-74
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:25-72
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:27-74
+activity#com.examples.mobileProject.texttranslation.TextTranslationActivity
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:9-77
+	android:name
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:27:19-74
+activity#com.examples.mobileProject.main.MainActivity
+ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:28:9-32:20
+	android:windowSoftInputMode
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:31:13-55
+	android:exported
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:29:13-46
 uses-sdk
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml

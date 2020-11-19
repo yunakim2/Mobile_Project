@@ -216,6 +216,10 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable/calendar_edit_bg.xml"
     },
     {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_activity_splash.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/activity_splash.xml"
+    },
+    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-anydpi-v21_ic_launcher_background.xml.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-anydpi-v21/ic_launcher_background.xml"
     },

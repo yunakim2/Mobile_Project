@@ -841,7 +841,9 @@ id image
 id imgDlgIcon
 id imgEmotion
 id imgGallery
+id imgHappy
 id imgPhoto
+id imgSad
 id img_main_analysis
 id img_main_calendar
 id info
@@ -931,6 +933,8 @@ id transTitle
 id tvCalSubTitle
 id tvCalTitle
 id tvDate
+id tvLogo
+id tvTitle
 id tvTransText
 id unchecked
 id uniform
@@ -981,6 +985,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_analization
 layout activity_main
+layout activity_splash
 layout activity_text_translation
 layout calendar_dialog
 layout custom_dialog
