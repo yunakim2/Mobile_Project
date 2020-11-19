@@ -705,12 +705,15 @@ drawable happy_pink
 drawable ic_baseline_add_photo_alternate_24
 drawable ic_baseline_assessment_24
 drawable ic_baseline_calendar_today_24
+drawable ic_baseline_fact_check_24
 drawable ic_baseline_translate_24
 drawable ic_launcher
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable icn_chevron_down
 drawable icn_chevron_up
+drawable item_recycler_bg_brown
+drawable item_recycler_bg_pink
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -855,10 +858,12 @@ id icon_group
 id ifRoom
 id image
 id imgDlgIcon
+id imgEmoji
 id imgEmotion
 id imgGallery
 id imgHappy
 id imgPhoto
+id imgRecyclerIcon
 id imgSad
 id img_main_analysis
 id img_main_calendar
@@ -952,6 +957,7 @@ id tvCalSubTitle
 id tvCalTitle
 id tvDate
 id tvLogo
+id tvRecyclerTitle
 id tvTitle
 id tvTransText
 id unchecked
