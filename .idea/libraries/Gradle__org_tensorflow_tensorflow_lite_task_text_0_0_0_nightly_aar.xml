@@ -5,6 +5,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ea4f09db4a89298732ccf112f48924dc/tensorflow-lite-task-text-0.0.0-nightly/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ea4f09db4a89298732ccf112f48924dc/tensorflow-lite-task-text-0.0.0-nightly/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ea4f09db4a89298732ccf112f48924dc/tensorflow-lite-task-text-0.0.0-nightly/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f11c77254d8288ddae74fae375860fc/tensorflow-lite-task-text-0.0.0-nightly/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f11c77254d8288ddae74fae375860fc/tensorflow-lite-task-text-0.0.0-nightly/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f11c77254d8288ddae74fae375860fc/tensorflow-lite-task-text-0.0.0-nightly/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
