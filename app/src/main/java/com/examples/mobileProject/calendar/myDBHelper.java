@@ -1,16 +1,10 @@
 package com.examples.mobileProject.calendar;
 
-import android.content.ClipData;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Message;
-import android.util.Log;
 
 public class myDBHelper extends SQLiteOpenHelper {
-
     public Context context;
 
     //Database information
@@ -33,5 +27,4 @@ public class myDBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS emotionTBL");
         onCreate(db);
     }
-
 }

@@ -5,7 +5,9 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -45,13 +47,15 @@ import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import static android.app.Activity.RESULT_OK;
+import static com.examples.mobileProject.R.*;
+import static com.examples.mobileProject.R.drawable.*;
+import static com.examples.mobileProject.R.drawable.sad_brown;
 
 
 public class CalendarFragment extends Fragment {
     public static ArrayList<ClipData.Item> items = new ArrayList<>();
     myDBHelper myHelper;
     SQLiteDatabase sqlDB;
-    static float resPos = 0;
     String fileName,imgfileName;
     static int curDay, curMonth, curYear;
     View dialogView;
@@ -73,14 +77,14 @@ public class CalendarFragment extends Fragment {
         myHelper = new myDBHelper(getContext());;
         //myHelper.updateItems();
 
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+        return inflater.inflate(layout.fragment_calendar, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        calendar = (CalendarView)getView().findViewById(R.id.calendarView);
+        calendar = (CalendarView)getView().findViewById(id.calendarView);
         client = new TextClassificationClient(getContext());
         handler = new Handler();
 
@@ -92,21 +96,21 @@ public class CalendarFragment extends Fragment {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getContext(), year+"년"+month+"월"+dayOfMonth+"일", Toast.LENGTH_SHORT).show();
                 curDay = dayOfMonth; curMonth = month+1; curYear = year;
-                dialogView = (View) View.inflate(getContext(), R.layout.calendar_dialog, null);
+                dialogView = (View) View.inflate(getContext(), layout.calendar_dialog, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
                 AlertDialog dialog = dlg.create();
-                edtDiary = dialogView.findViewById(R.id.edtDiary);
-                imgGallery = dialogView.findViewById(R.id.imgGallery);
-                imgPhoto =  dialogView.findViewById(R.id.imgPhoto);
-                imgEmotion = dialogView.findViewById(R.id.imgEmotion);
-                tvDlgTitle = dialogView.findViewById(R.id.tvDate);
-                btnDlgOK = dialogView.findViewById(R.id.btnOK);
-                btnDlgCancel = dialogView.findViewById(R.id.btnCancle);
-                btnDlgAnalysis = dialogView.findViewById(R.id.btnAnalysis);
+                edtDiary = dialogView.findViewById(id.edtDiary);
+                imgGallery = dialogView.findViewById(id.imgGallery);
+                imgPhoto =  dialogView.findViewById(id.imgPhoto);
+                imgEmotion = dialogView.findViewById(id.imgEmotion);
+                tvDlgTitle = dialogView.findViewById(id.tvDate);
+                btnDlgOK = dialogView.findViewById(id.btnOK);
+                btnDlgCancel = dialogView.findViewById(id.btnCancle);
+                btnDlgAnalysis = dialogView.findViewById(id.btnAnalysis);
                 dialog.setView(dialogView);
                 String date = Integer.toString(curYear)+"년 "+Integer.toString(curMonth)+"월 "+Integer.toString(curDay)+"일";
+                openDB(curYear,curMonth,curDay);
                 dialog.show();
                 tvDlgTitle.setText(date);
                 btnDlgOK.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +145,7 @@ public class CalendarFragment extends Fragment {
                                 imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
                             }
                             outFs.close();
-                            Toast.makeText(getContext(),resPos + "file_" +fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),  "file_" +fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
 
 
 
@@ -168,7 +172,6 @@ public class CalendarFragment extends Fragment {
                                 public void run() {
                                     PapagoTextTranslate tranMode = new PapagoTextTranslate();
                                     String result;
-
                                     result = tranMode.getTranslation(str, "ko", "en");
                                     Bundle resultBundle = new Bundle();
                                     resultBundle.putString("resultWord", result);
@@ -211,20 +214,10 @@ public class CalendarFragment extends Fragment {
 
             Bundle bundle = msg.getData();
             String resultText = bundle.getString("resultWord");
-
-            //**********************
-            initAnalization(resultText);
-
-            //edtDiary.setText(resultText);
+            classify(resultText);
         }
 
     };
-
-    private void initAnalization(String resultText) {
-
-        classify(resultText);
-
-    }
     @Override
     public void onStart() {
         super.onStart();
@@ -254,28 +247,61 @@ public class CalendarFragment extends Fragment {
     }
     private void showResult(final String inputText, final List<Result> results) {
         // Run on UI thread as we'll updating our app UI
-        getActivity().runOnUiThread( () -> {
-//            String textToShow = "Input: " + inputText + "\nOutput:\n";
-//            for (int i = 0; i < results.size(); i++) {
-//                Result result = results.get(i);
-//                textToShow += String.format("    %s: %s\n", result.getTitle(), result.getConfidence()); //
-//            }
-//            textToShow += "---------\n";
-//            edtDiary.setText(textToShow); //일기내용에 분석결과 pos, neg 값 표시
-            //위 대신 pos값(실수값)만 resPos변수에 저장.
-            Result result = results.get(0);
-            resPos = result.getConfidence();
-            if(result.getTitle().toString().equals("Negative"))
-                resPos = 1 - resPos;
 
-            //resPos 계산 다 하고, resPos값과 그때 날짜를 db에 저장.
-            saveDB(resPos);
+        getActivity().runOnUiThread( () -> {
+            float resPos , resNeg;
+            Result result = results.get(0);
+            System.out.println(result.getTitle() + result.getConfidence());
+            if(result.getTitle().equals("Negative")) {
+               resNeg = result.getConfidence();
+               resPos = 1- resNeg;
+            } else {
+                resPos = result.getConfidence();
+                resNeg = 1-resPos;
+            }
+            //resPos,resNeg 값과 그때 날짜를 db에 저장.
+            saveDB(resPos,resNeg);
+            initEmoji(resPos, resNeg);
         });
     }
-    private void saveDB(float resPos){
+    private void initEmoji(float resPos, float resNeg) {
+        if(resPos>resNeg) {
+            if(resNeg>=0.4) {
+                imgEmotion.setImageDrawable(getResources().getDrawable(sad_brown));
+            } else {
+                imgEmotion.setImageDrawable(getResources().getDrawable(happy_pink));
+            }
+
+        } else {
+            imgEmotion.setImageDrawable(getResources().getDrawable(sad_brown));
+        }
+    }
+    private void openDB(int curYear, int curMonth, int curDay) {
         int dbDate = 1000*curYear+100*curMonth+curDay;
-        float dbPos = resPos;
-        float dbNeg = 1- resPos;
+        try {
+            sqlDB = myHelper.getReadableDatabase();
+            Cursor cursor = sqlDB.rawQuery("SELECT * FROM emotionTBL",null);
+            if(cursor!=null) {
+                if(cursor.moveToFirst()) {
+                    do {
+                        if(dbDate == cursor.getInt(cursor.getColumnIndex("dbDate"))) {
+                            float resPos = cursor.getFloat(cursor.getColumnIndex("dbPos"));
+                            float resNeg = cursor.getFloat(cursor.getColumnIndex("dbNeg"));
+                            initEmoji(resPos,resNeg);
+                            break;
+                        }
+                    } while(cursor.moveToNext());
+                }
+            }
+
+        } catch (SQLiteException e) {
+            System.out.println(e);
+        }
+
+
+    }
+    private void saveDB(float resPos, float resNeg){
+        int dbDate = 1000*curYear+100*curMonth+curDay;
         boolean find = false;
 
         sqlDB = myHelper.getReadableDatabase();
@@ -283,7 +309,7 @@ public class CalendarFragment extends Fragment {
         while(cursor.moveToNext()){
             if(cursor.getInt(0) == dbDate){
                 Log.e("err","4");
-                sqlDB.execSQL("UPDATE emotionTBL SET dbPos = '"+dbPos+"', "+"dbNeg = '"+dbNeg+"' WHERE dbDate = '"+dbDate+"';");
+                sqlDB.execSQL("UPDATE emotionTBL SET dbPos = '"+resPos+"', "+"dbNeg = '"+resNeg+"' WHERE dbDate = '"+dbDate+"';");
                 sqlDB.close();
                 Log.e("err","5");
                 find = true; break;
@@ -293,7 +319,7 @@ public class CalendarFragment extends Fragment {
         if(find == false) {
             Log.e("err","1");
             sqlDB = myHelper.getWritableDatabase();
-            sqlDB.execSQL("INSERT INTO emotionTBL VALUES ('"+dbDate+"', '"+dbPos+"', '"+dbNeg+"');");
+            sqlDB.execSQL("INSERT INTO emotionTBL VALUES ('"+dbDate+"', '"+resPos+"', '"+resNeg+"');");
             Log.e("err","2");
             sqlDB.close();
             Log.e("err","3");
