@@ -47,8 +47,10 @@ public class TextClassificationClient {
   }
 
   public void unload() {
-    classifier.close();
-    classifier = null;
+    if(classifier!=null) {
+      classifier.close();
+      classifier = null;
+    }
   }
 
   public List<Result> classify(String text) {

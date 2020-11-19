@@ -234,6 +234,7 @@ public class CalendarFragment extends Fragment {
                 () -> {
                     client.unload();
                 });
+
     }
     private void classify(final String text) {
         handler.post(
