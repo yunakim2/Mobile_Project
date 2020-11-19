@@ -260,6 +260,10 @@
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/generated/res/pngs/interpreter/debug/drawable-ldpi/ic_launcher_background.png"
     },
     {
+        "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/layout_item_analysis_list.xml.flat",
+        "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/layout/item_analysis_list.xml"
+    },
+    {
         "merged": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/res/merged/interpreter/debug/drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },

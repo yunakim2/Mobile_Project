@@ -34,7 +34,7 @@
 19        android:allowBackup="true"
 19-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/5b1aed2646b8b5f25379af823d27aa73/core-1.1.0/AndroidManifest.xml:24:18-86
+20-->[androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/fc5b6b23e67119b8eee5d96f465cb573/core-1.1.0/AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:icon="@drawable/happy_pink"
 22-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-44
