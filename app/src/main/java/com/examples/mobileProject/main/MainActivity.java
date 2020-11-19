@@ -9,7 +9,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     List<Menus> list = new ArrayList<Menus>();
 
     public static final int sub = 1000;
+    public static boolean isSelected = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,30 +56,36 @@ public class MainActivity extends AppCompatActivity {
             menus.layout.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    changeSelected(menus.index);
+                    if (menus.index == 1) {
+                        changeSelected(menus.index);
+                        isSelected = true;
+                    }
+                    else {
+                        if(isSelected) changeSelected(menus.index);
+                    }
+
                 }
             });
+
         }
+
     }
+
     public void changeSelected(Integer tapnum) {
 
         for (Menus menus : list) {
             if (menus.index == tapnum) {
                 menus.img.setSelected(true);
-                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorBrown));
+                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorBrown));
             } else {
                 menus.img.setSelected(false);
-                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(),R.color.colorPrimary));
+                menus.img.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
 
             }
         }
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_main,list.get(tapnum).fragment)
+                .replace(R.id.fl_main, list.get(tapnum).fragment)
                 .commitAllowingStateLoss();
-
-
     }
-
-
 }
