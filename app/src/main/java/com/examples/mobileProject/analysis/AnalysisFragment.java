@@ -31,7 +31,6 @@ import java.util.Date;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class AnalysisFragment extends Fragment {
-    public static boolean isCreated = false;
     myDBHelper myHelper;
     SQLiteDatabase sqlDB;
     RecyclerView mRecyclerView = null ;
@@ -86,12 +85,20 @@ public class AnalysisFragment extends Fragment {
 
             }
         });
+        initDataClear();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext())) ;
         mAdapter.notifyDataSetChanged() ;
+        collectDates();
 
-        if(!isCreated) collectDates();
-        isCreated = true;
+    }
+    private void initDataClear() {
+        weekData_1.clear();
+        weekData_2.clear();
+        weekData_3.clear();
+        weekData_4.clear();
+        weekData.clear();
+        analysis.clear();
     }
     private void collectDates(){
         Date currentTime = Calendar.getInstance().getTime();

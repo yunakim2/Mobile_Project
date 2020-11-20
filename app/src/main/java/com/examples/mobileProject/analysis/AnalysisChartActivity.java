@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.examples.mobileProject.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AnalysisChartActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analysis_chart);
 
         Intent intent = getIntent();
-        ArrayList<AnalysisDayData> data = (ArrayList<AnalysisDayData>)intent.getSerializableExtra("datas");
+        ArrayList<AnalysisDayData> data = (ArrayList<AnalysisDayData>) intent.getSerializableExtra("datas");
 
         for(int i =0 ; i<data.size() ; i++) {
             System.out.println(data.get(i).date);

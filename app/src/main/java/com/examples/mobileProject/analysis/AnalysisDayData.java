@@ -1,6 +1,8 @@
 package com.examples.mobileProject.analysis;
 
-public class AnalysisDayData {
+import java.io.Serializable;
+
+public class AnalysisDayData implements Serializable {
     int date;
     float pos;
     float neg;
@@ -30,7 +32,7 @@ public class AnalysisDayData {
         this.neg = neg;
     }
 
-    public AnalysisDayData(int date, float pos, float neg) {
+    public AnalysisDayData(int date, float pos, float neg)  {
         this.date = date;
         this.pos = pos;
         this.neg = neg;
