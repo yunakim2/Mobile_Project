@@ -20,8 +20,9 @@ com/examples/mobileProject/analysis/AnalysisData.java
  com.examples.mobileProject.analysis.AnalysisData
 com/examples/mobileProject/texttranslation/PapagoTextTranslate.java
  com.examples.mobileProject.texttranslation.PapagoTextTranslate
-com/examples/mobileProject/analysis/AnalysisChartActivity.java
- com.examples.mobileProject.analysis.AnalysisChartActivity
+com/examples/mobileProject/main/MainActivity.java
+ com.examples.mobileProject.main.MainActivity
+ com.examples.mobileProject.main.MainActivity$1
 com/examples/mobileProject/texttranslation/TextTranslationActivity.java
  com.examples.mobileProject.texttranslation.TextTranslationActivity
  com.examples.mobileProject.texttranslation.TextTranslationActivity$1
@@ -36,9 +37,8 @@ com/examples/mobileProject/main/SplashActivity.java
  com.examples.mobileProject.main.SplashActivity
  com.examples.mobileProject.main.SplashActivity$1
  com.examples.mobileProject.main.SplashActivity$splashhandler
-com/examples/mobileProject/main/MainActivity.java
- com.examples.mobileProject.main.MainActivity
- com.examples.mobileProject.main.MainActivity$1
+com/examples/mobileProject/analysis/AnalysisChartActivity.java
+ com.examples.mobileProject.analysis.AnalysisChartActivity
 com/examples/mobileProject/analysis/AnalysisFragment.java
  com.examples.mobileProject.analysis.AnalysisFragment
  com.examples.mobileProject.analysis.AnalysisFragment$1
