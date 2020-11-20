@@ -141,19 +141,10 @@ public class AnalysisChartActivity extends AppCompatActivity {
 
         if(c==null) Toast.makeText(getApplicationContext(),"통화기록 없음", Toast.LENGTH_SHORT).show();
 
-        //StringBuffer callBuff = new StringBuffer();
+
         String number;
         c.moveToFirst();
-//        do{
-//            long callDate = c.getLong(0);
-//            SimpleDateFormat datePattern = new SimpleDateFormat("yyyy-MM-dd");
-//            String date_str = datePattern.format(new Date(callDate));
-//            callBuff.append(date_str+":");
-//            if(c.getInt(1)==CallLog.Calls.INCOMING_TYPE) callBuff.append("착신 : ");
-//            else callBuff.append("발신 : ");
-//            callBuff.append(c.getString(2)+":");
-//            callBuff.append(c.getString(3)+"초\n");
-//        } while (c.moveToNext());
+
         for(int i=0;i<3;){
             number = c.getString(2);
             if(c.getInt(1)==CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number))) {
