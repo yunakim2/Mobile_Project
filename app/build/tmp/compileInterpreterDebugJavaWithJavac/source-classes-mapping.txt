@@ -4,10 +4,8 @@ com/examples/mobileProject/analysis/AnalysisDayData.java
  com.examples.mobileProject.analysis.AnalysisDayData
 com/examples/mobileProject/BuildConfig.java
  com.examples.mobileProject.BuildConfig
-com/examples/mobileProject/main/SplashActivity.java
- com.examples.mobileProject.main.SplashActivity
- com.examples.mobileProject.main.SplashActivity$1
- com.examples.mobileProject.main.SplashActivity$splashhandler
+com/examples/mobileProject/main/Menus.java
+ com.examples.mobileProject.main.Menus
 com/examples/mobileProject/analysis/AnalysisData.java
  com.examples.mobileProject.analysis.AnalysisData
 com/examples/mobileProject/calendar/CalendarFragment.java
@@ -30,13 +28,15 @@ com/examples/mobileProject/texttranslation/TextTranslationActivity.java
  com.examples.mobileProject.texttranslation.TextTranslationActivity$1
  com.examples.mobileProject.texttranslation.TextTranslationActivity$1$1
  com.examples.mobileProject.texttranslation.TextTranslationActivity$2
-com/examples/mobileProject/main/Menus.java
- com.examples.mobileProject.main.Menus
 com/examples/mobileProject/adapter/AnalysisAdapter.java
  com.examples.mobileProject.adapter.AnalysisAdapter
  com.examples.mobileProject.adapter.AnalysisAdapter$AnalysisViewHolder
  com.examples.mobileProject.adapter.AnalysisAdapter$AnalysisViewHolder$1
  com.examples.mobileProject.adapter.AnalysisAdapter$OnItemClickListener
+com/examples/mobileProject/main/SplashActivity.java
+ com.examples.mobileProject.main.SplashActivity
+ com.examples.mobileProject.main.SplashActivity$1
+ com.examples.mobileProject.main.SplashActivity$splashhandler
 com/examples/mobileProject/analysis/AnalysisChartActivity.java
  com.examples.mobileProject.analysis.AnalysisChartActivity
  com.examples.mobileProject.analysis.AnalysisChartActivity$1
