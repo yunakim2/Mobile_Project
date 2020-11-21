@@ -1,0 +1,6 @@
+org/tensorflow/lite/examples/mobileProject/client/BuildConfig.java
+ org.tensorflow.lite.examples.mobileProject.client.BuildConfig
+org/tensorflow/lite/examples/mobileProject/client/TextClassificationClient.java
+ org.tensorflow.lite.examples.mobileProject.client.TextClassificationClient
+org/tensorflow/lite/examples/mobileProject/client/Result.java
+ org.tensorflow.lite.examples.mobileProject.client.Result
