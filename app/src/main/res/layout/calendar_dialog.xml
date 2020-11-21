@@ -8,7 +8,8 @@
     android:background="@drawable/calendar_dlg_bg"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingVertical="10dp">
+    android:paddingVertical="10dp"
+    android:id="@+id/calendarDialog">
 
 
     <ImageView
