@@ -28,6 +28,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity android:name="com.examples.mobileProject.analysis.AnalysisChartActivity" />
+        <activity android:name="com.examples.mobileProject.analysis.CallDialog" />
         <activity android:name="com.examples.mobileProject.main.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

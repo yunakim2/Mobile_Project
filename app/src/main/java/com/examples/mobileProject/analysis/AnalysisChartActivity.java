@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.provider.CallLog;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,9 +32,11 @@ import java.util.Date;
 import java.util.List;
 
 public class AnalysisChartActivity extends AppCompatActivity {
-    ImageButton btnCall_1, btnCall_2, btnCall_3;
-    TextView txtCall_1, txtCall_2, txtCall_3;
-    ArrayList<String> callStr = new ArrayList<String>();
+    //ImageButton btnCall_1, btnCall_2, btnCall_3;
+    //TextView txtCall_1, txtCall_2, txtCall_3;
+    CallDialog dialogView;
+    Button btnCall;
+    static ArrayList<String> callStr = new ArrayList<String>();
     BarChart chart ;
     ArrayList<AnalysisDayData> data = new ArrayList<AnalysisDayData>();
     @Override
@@ -41,12 +45,17 @@ public class AnalysisChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analysis_chart);
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
 
-        btnCall_1 = (ImageButton) findViewById(R.id.imgBtnCall_1);
-        btnCall_2 = (ImageButton) findViewById(R.id.imgBtnCall_2);
-        btnCall_3 = (ImageButton) findViewById(R.id.imgBtnCall_3);
-        txtCall_1 = (TextView) findViewById(R.id.txtCall_1);
-        txtCall_2 = (TextView) findViewById(R.id.txtCall_2);
-        txtCall_3 = (TextView) findViewById(R.id.txtCall_3);
+        btnCall = (Button)findViewById(R.id.btnCall);
+        final Dialog dlgCall = new Dialog(this);
+
+//        btnCall_1 = (ImageButton) findViewById(R.id.imgBtnCall_1);
+//        btnCall_2 = (ImageButton) findViewById(R.id.imgBtnCall_2);
+//        btnCall_3 = (ImageButton) findViewById(R.id.imgBtnCall_3);
+//
+//
+//        txtCall_1 = (TextView) findViewById(R.id.txtCall_1);
+//        txtCall_2 = (TextView) findViewById(R.id.txtCall_2);
+//        txtCall_3 = (TextView) findViewById(R.id.txtCall_3);
 
         Intent intent = getIntent();
         data = (ArrayList<AnalysisDayData>) intent.getSerializableExtra("datas");
@@ -54,30 +63,46 @@ public class AnalysisChartActivity extends AppCompatActivity {
         getCallHistory();
         initChart();
 
-        btnCall_1.setOnClickListener(new View.OnClickListener() {
+
+        //todo. call버튼 누르면 dialog 띄우기
+        btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("tel:/"+ callStr.get(0)));
-                startActivity(mIntent);
+//                dialogView = new CallDialog();
+                Intent intent = new Intent(getApplicationContext(), CallDialog.class);
+                startActivity(intent);
             }
         });
-        btnCall_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("tel:/"+ callStr.get(1)));
-                startActivity(mIntent);
-            }
-        });
-        btnCall_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-                        .parse("tel:/"+ callStr.get(2)));
-                startActivity(mIntent);
-            }
-        });
+
+//        btnCall_1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!callStr.isEmpty()) {
+//                    Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/" + callStr.get(0)));
+//                    startActivity(mIntent);
+//                }
+//            }
+//        });
+//        btnCall_2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!callStr.isEmpty()) {
+//                    Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
+//                            .parse("tel:/" + callStr.get(1)));
+//                    startActivity(mIntent);
+//                }
+//            }
+//        });
+//        btnCall_3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!callStr.isEmpty()) {
+//                    Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
+//                            .parse("tel:/" + callStr.get(2)));
+//                    startActivity(mIntent);
+//                }
+//            }
+//        });
 
     }
     public void initChart() {
@@ -138,25 +163,28 @@ public class AnalysisChartActivity extends AppCompatActivity {
         String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.DURATION};
 
         Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
+        System.out.println("ccccc: "+c);
+        if(c.getCount()==0) Toast.makeText(getApplicationContext(),"통화기록 없음", Toast.LENGTH_SHORT).show();
 
-        if(c==null) Toast.makeText(getApplicationContext(),"통화기록 없음", Toast.LENGTH_SHORT).show();
+        else {
+            String number;
+            c.moveToFirst();
 
-
-        String number;
-        c.moveToFirst();
-
-        for(int i=0;i<3;){
-            number = c.getString(2);
-            if(c.getInt(1)==CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number))) {
-                callStr.add(number); i++;
+            for (int i = 0; i < 3; ) {
+                number = c.getString(2);
+                if (c.getInt(1) == CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number))) {
+                    callStr.add(number);
+                    i++;
+                }
+                c.moveToNext();
             }
-            c.moveToNext();
-        }
 
-        c.close();
-        txtCall_1.setText(callStr.get(0).toString());
-        txtCall_2.setText(callStr.get(1).toString());
-        txtCall_3.setText(callStr.get(2).toString());
+            c.close();
+
+//            txtCall_1.setText(callStr.get(0).toString());
+//            txtCall_2.setText(callStr.get(1).toString());
+//            txtCall_3.setText(callStr.get(2).toString());
+        }
     }
 
 }

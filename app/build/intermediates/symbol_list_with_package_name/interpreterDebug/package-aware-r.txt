@@ -807,8 +807,10 @@ id beginning
 id blocking
 id bottom
 id btnAnalysis
+id btnCall
 id btnCancle
 id btnOK
+id btnPlaylist
 id btnTrans
 id button
 id buttonPanel
@@ -976,6 +978,7 @@ id tvTransText
 id txtCall_1
 id txtCall_2
 id txtCall_3
+id txtMessage
 id unchecked
 id uniform
 id up
