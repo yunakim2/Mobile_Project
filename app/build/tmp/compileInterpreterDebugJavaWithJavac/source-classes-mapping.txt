@@ -4,8 +4,9 @@ com/examples/mobileProject/analysis/AnalysisDayData.java
  com.examples.mobileProject.analysis.AnalysisDayData
 com/examples/mobileProject/BuildConfig.java
  com.examples.mobileProject.BuildConfig
-com/examples/mobileProject/main/Menus.java
- com.examples.mobileProject.main.Menus
+com/examples/mobileProject/analysis/AnalysisFragment.java
+ com.examples.mobileProject.analysis.AnalysisFragment
+ com.examples.mobileProject.analysis.AnalysisFragment$1
 com/examples/mobileProject/analysis/AnalysisData.java
  com.examples.mobileProject.analysis.AnalysisData
 com/examples/mobileProject/calendar/CalendarFragment.java
@@ -37,11 +38,10 @@ com/examples/mobileProject/main/SplashActivity.java
  com.examples.mobileProject.main.SplashActivity
  com.examples.mobileProject.main.SplashActivity$1
  com.examples.mobileProject.main.SplashActivity$splashhandler
+com/examples/mobileProject/main/Menus.java
+ com.examples.mobileProject.main.Menus
 com/examples/mobileProject/analysis/AnalysisChartActivity.java
  com.examples.mobileProject.analysis.AnalysisChartActivity
  com.examples.mobileProject.analysis.AnalysisChartActivity$1
  com.examples.mobileProject.analysis.AnalysisChartActivity$2
  com.examples.mobileProject.analysis.AnalysisChartActivity$3
-com/examples/mobileProject/analysis/AnalysisFragment.java
- com.examples.mobileProject.analysis.AnalysisFragment
- com.examples.mobileProject.analysis.AnalysisFragment$1

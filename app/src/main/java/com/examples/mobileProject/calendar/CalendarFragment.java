@@ -10,7 +10,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -50,6 +52,7 @@ import static android.app.Activity.RESULT_OK;
 import static com.examples.mobileProject.R.*;
 import static com.examples.mobileProject.R.drawable.*;
 import static com.examples.mobileProject.R.drawable.sad_brown;
+import static com.examples.mobileProject.R.layout.calendar_dialog;
 
 
 public class CalendarFragment extends Fragment {
@@ -91,15 +94,28 @@ public class CalendarFragment extends Fragment {
         initCalendarDlg();
 
     }
-
+    private AlertDialog showDialog(AlertDialog dialog){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = getLayoutInflater();
+        dialogView = inflater.inflate(calendar_dialog, null);
+        builder.setView(dialogView);
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+        return dialog;
+    }
     private void initCalendarDlg() {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 curDay = dayOfMonth; curMonth = month+1; curYear = year;
-                dialogView = (View) View.inflate(getContext(), layout.calendar_dialog, null);
-                AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
-                AlertDialog dialog = dlg.create();
+                AlertDialog dialog = null;
+                dialog = showDialog(dialog);
+
+//                dialogView = (View) View.inflate(getContext(), calendar_dialog, null);
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
+//                AlertDialog dialog = dlg.create();
+
                 edtDiary = dialogView.findViewById(id.edtDiary);
                 imgGallery = dialogView.findViewById(id.imgGallery);
                 imgPhoto =  dialogView.findViewById(id.imgPhoto);
@@ -108,10 +124,10 @@ public class CalendarFragment extends Fragment {
                 btnDlgOK = dialogView.findViewById(id.btnOK);
                 btnDlgCancel = dialogView.findViewById(id.btnCancle);
                 btnDlgAnalysis = dialogView.findViewById(id.btnAnalysis);
-                dialog.setView(dialogView);
+//                dialog.setView(dialogView);
                 String date = Integer.toString(curYear)+"년 "+Integer.toString(curMonth)+"월 "+Integer.toString(curDay)+"일";
                 openDB(curYear,curMonth,curDay);
-                dialog.show();
+//                dialog.show();
                 tvDlgTitle.setText(date);
                 btnDlgOK.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -155,10 +171,11 @@ public class CalendarFragment extends Fragment {
                         }
                     }
                 });
+                AlertDialog finalDialog = dialog;
                 btnDlgCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dialog.dismiss();
+                        finalDialog.dismiss();
                     }
                 });
 
@@ -254,8 +271,8 @@ public class CalendarFragment extends Fragment {
             Result result = results.get(0);
             System.out.println(result.getTitle() + result.getConfidence());
             if(result.getTitle().equals("Negative")) {
-               resNeg = result.getConfidence();
-               resPos = 1- resNeg;
+                resNeg = result.getConfidence();
+                resPos = 1- resNeg;
             } else {
                 resPos = result.getConfidence();
                 resNeg = 1-resPos;
@@ -316,7 +333,7 @@ public class CalendarFragment extends Fragment {
                 find = true; break;
             }
         }
-         //새로운 날짜에 작성시 insert
+        //새로운 날짜에 작성시 insert
         if(find == false) {
             Log.e("err","1");
             sqlDB = myHelper.getWritableDatabase();
