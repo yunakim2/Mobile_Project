@@ -6,80 +6,86 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="19"
-8-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml
+8-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml
+9-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:5:22-64
+11-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-12-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:6:5-79
-12-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:6:22-76
+12-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:6:5-79
+12-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:6:22-76
 13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-13-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:7:5-79
-13-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:7:22-76
+13-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:7:22-76
 14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-14-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:8:5-81
-14-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:8:22-78
+14-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:8:5-81
+14-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:8:22-78
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:9:5-80
-15-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:9:22-77
+15-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:9:5-80
+15-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:9:22-77
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:10:5-81
-16-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:10:22-78
+16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:5-81
+16-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:10:22-78
 17    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-17-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:11:5-71
-17-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:11:22-69
+17-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:11:5-72
+17-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:11:22-69
 18
 19    <application
-19-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:13:5-34:19
+19-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:13:5-36:19
 20        android:allowBackup="true"
-20-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:14:9-35
+20-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:14:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.1.0] C:\Users\jk110\.gradle\caches\transforms-2\files-2.1\fc5b6b23e67119b8eee5d96f465cb573\core-1.1.0\AndroidManifest.xml:24:18-86
+21-->[androidx.core:core:1.1.0] /Users/kim-yuna/.gradle/caches/transforms-2/files-2.1/fc5b6b23e67119b8eee5d96f465cb573/core-1.1.0/AndroidManifest.xml:24:18-86
 22        android:debuggable="true"
 23        android:icon="@drawable/happy_pink"
-23-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:15:9-44
+23-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:15:9-44
 24        android:label="@string/tfe_tc_app_name"
-24-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:16:9-48
+24-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:16:9-48
 25        android:roundIcon="@drawable/happy_pink"
-25-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:17:9-49
+25-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:17:9-49
 26        android:supportsRtl="true"
-26-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:18:9-35
+26-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:18:9-35
 27        android:testOnly="true"
 28        android:theme="@style/AppTheme"
-28-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:19:9-40
+28-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:19:9-40
 29        android:usesCleartextTraffic="true" >
-29-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:20:9-44
-30        <activity android:name="com.examples.mobileProject.analysis.AnalysisChartActivity" />
-30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:9-77
-30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:19-65
-31        <activity android:name="com.examples.mobileProject.main.SplashActivity" >
-31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:9-28:20
-31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:19-54
-32            <intent-filter>
-32-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:23:13-27:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:24:17-69
-33-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:24:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:26:17-77
-35-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:26:27-74
-36            </intent-filter>
-37        </activity>
-38        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
-38-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:29:9-77
-38-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:29:19-74
-39        <activity
-39-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:30:9-33:67
-40            android:name="com.examples.mobileProject.main.MainActivity"
-40-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:31:13-46
-41            android:exported="true"
-41-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:32:13-36
-42            android:windowSoftInputMode="adjustResize" />
-42-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:33:13-55
-43    </application>
-44
-45</manifest>
+29-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:20:9-44
+30        <activity android:name="com.examples.mobileProject.chart.CallActivity" />
+30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:9-65
+30-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:21:19-53
+31        <activity android:name="com.examples.mobileProject.chart.SolutionActivity" />
+31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:9-60
+31-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:22:19-57
+32        <activity android:name="com.examples.mobileProject.chart.AnalysisChartActivity" />
+32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:9-65
+32-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:23:19-62
+33        <activity android:name="com.examples.mobileProject.main.SplashActivity" >
+33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:9-30:20
+33-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:24:19-54
+34            <intent-filter>
+34-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:25:13-29:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:17-69
+35-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:26:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:28:17-77
+37-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:28:27-74
+38            </intent-filter>
+39        </activity>
+40        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
+40-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:31:9-77
+40-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:31:19-74
+41        <activity
+41-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:32:9-35:58
+42            android:name="com.examples.mobileProject.main.MainActivity"
+42-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:33:13-46
+43            android:exported="true"
+43-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:34:13-36
+44            android:windowSoftInputMode="adjustResize" />
+44-->/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/src/main/AndroidManifest.xml:35:13-55
+45    </application>
+46
+47</manifest>
