@@ -7,6 +7,8 @@ com/examples/mobileProject/BuildConfig.java
 com/examples/mobileProject/analysis/AnalysisFragment.java
  com.examples.mobileProject.analysis.AnalysisFragment
  com.examples.mobileProject.analysis.AnalysisFragment$1
+com/examples/mobileProject/analysis/AnalysisData.java
+ com.examples.mobileProject.analysis.AnalysisData
 com/examples/mobileProject/calendar/CalendarFragment.java
  com.examples.mobileProject.calendar.CalendarFragment
  com.examples.mobileProject.calendar.CalendarFragment$1
@@ -17,8 +19,6 @@ com/examples/mobileProject/calendar/CalendarFragment.java
  com.examples.mobileProject.calendar.CalendarFragment$1$3$1
  com.examples.mobileProject.calendar.CalendarFragment$1$4
  com.examples.mobileProject.calendar.CalendarFragment$2
-com/examples/mobileProject/analysis/AnalysisData.java
- com.examples.mobileProject.analysis.AnalysisData
 com/examples/mobileProject/texttranslation/PapagoTextTranslate.java
  com.examples.mobileProject.texttranslation.PapagoTextTranslate
 com/examples/mobileProject/main/MainActivity.java
@@ -42,3 +42,6 @@ com/examples/mobileProject/main/Menus.java
  com.examples.mobileProject.main.Menus
 com/examples/mobileProject/analysis/AnalysisChartActivity.java
  com.examples.mobileProject.analysis.AnalysisChartActivity
+ com.examples.mobileProject.analysis.AnalysisChartActivity$1
+ com.examples.mobileProject.analysis.AnalysisChartActivity$2
+ com.examples.mobileProject.analysis.AnalysisChartActivity$3
