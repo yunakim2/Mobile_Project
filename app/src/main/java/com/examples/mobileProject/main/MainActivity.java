@@ -3,9 +3,11 @@ package com.examples.mobileProject.main;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS}, MODE_PRIVATE);
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_CONTACTS}, MODE_PRIVATE);
 
         clCalendar = findViewById(R.id.cl_main_calendar);
         clAnalysis = findViewById(R.id.cl_main_analysis);
