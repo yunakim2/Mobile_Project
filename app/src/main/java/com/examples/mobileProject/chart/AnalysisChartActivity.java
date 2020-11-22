@@ -35,9 +35,8 @@ import java.util.Date;
 import java.util.List;
 
 public class AnalysisChartActivity extends AppCompatActivity {
-    ImageButton btnCall_1, btnCall_2, btnCall_3;
-    TextView txtCall_1, txtCall_2, txtCall_3, tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
-    ArrayList<String> callStr = new ArrayList<String>();
+    TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
+
     LineChart chart ;
     ImageView imgEmotion;
     ArrayList<AnalysisDayData> data = new ArrayList<AnalysisDayData>();
@@ -46,13 +45,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_chart);
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
-
-//        btnCall_1 = (ImageButton) findViewById(R.id.imgBtnCall_1);
-//        btnCall_2 = (ImageButton) findViewById(R.id.imgBtnCall_2);
-//        btnCall_3 = (ImageButton) findViewById(R.id.imgBtnCall_3);
-//        txtCall_1 = (TextView) findViewById(R.id.txtCall_1);
-//        txtCall_2 = (TextView) findViewById(R.id.txtCall_2);
-//        txtCall_3 = (TextView) findViewById(R.id.txtCall_3);
 
         tvChartTitle1 = findViewById(R.id.tvChartTitle);
         tvChartTitle2 = findViewById(R.id.tvChartWeek);
@@ -86,32 +78,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),SolutionActivity.class));
             }
         });
-//
-//        btnCall_1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-//                        .parse("tel:/"+ callStr.get(0)));
-//                startActivity(mIntent);
-//            }
-//        });
-//        btnCall_2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-//                        .parse("tel:/"+ callStr.get(1)));
-//                startActivity(mIntent);
-//            }
-//        });
-//        btnCall_3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri
-//                        .parse("tel:/"+ callStr.get(2)));
-//                startActivity(mIntent);
-//            }
-//        });
-
 
     }
     public void initChart() {
@@ -205,29 +171,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
         chart.setData(data);
         chart.invalidate();
     }
-    public void getCallHistory(){
-        String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.DURATION};
 
-        Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
-
-        if(c==null) Toast.makeText(getApplicationContext(),"통화기록 없음", Toast.LENGTH_SHORT).show();
-
-
-        String number;
-        c.moveToFirst();
-
-        for(int i=0;i<3;){
-            number = c.getString(2);
-            if(c.getInt(1)==CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number))) {
-                callStr.add(number); i++;
-            }
-            c.moveToNext();
-        }
-
-        c.close();
-        txtCall_1.setText(callStr.get(0).toString());
-        txtCall_2.setText(callStr.get(1).toString());
-        txtCall_3.setText(callStr.get(2).toString());
-    }
 
 }
