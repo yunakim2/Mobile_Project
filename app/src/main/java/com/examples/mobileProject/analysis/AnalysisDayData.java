@@ -3,9 +3,9 @@ package com.examples.mobileProject.analysis;
 import java.io.Serializable;
 
 public class AnalysisDayData implements Serializable {
-    int date;
-    float pos;
-    float neg;
+    public int date;
+    public float pos;
+    public float neg;
 
 
     public int getDate() {

@@ -29,11 +29,11 @@
 16-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:10:5-81
 16-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:10:22-78
 17    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-17-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:11:5-71
+17-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:11:5-72
 17-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:11:22-69
 18
 19    <application
-19-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:13:5-35:19
+19-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:13:5-36:19
 20        android:allowBackup="true"
 20-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:14:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -52,37 +52,40 @@
 28-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:19:9-40
 29        android:usesCleartextTraffic="true" >
 29-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:20:9-44
-30        <activity android:name="com.examples.mobileProject.analysis.AnalysisChartActivity" />
-30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:9-77
-30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:19-65
-31        <activity android:name="com.examples.mobileProject.analysis.CallDialog" />
-31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:9-66
-31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:19-54
-32        <activity android:name="com.examples.mobileProject.main.SplashActivity" >
-32-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:23:9-29:20
-32-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:23:19-54
-33            <intent-filter>
-33-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:24:13-28:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:25:17-69
-34-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:25:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:27:17-77
-36-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:27:27-74
-37            </intent-filter>
-38        </activity>
-39        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
-39-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:30:9-77
-39-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:30:19-74
-40        <activity
-40-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:31:9-34:67
-41            android:name="com.examples.mobileProject.main.MainActivity"
-41-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:32:13-46
-42            android:exported="true"
-42-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:33:13-36
-43            android:windowSoftInputMode="adjustResize" />
-43-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:34:13-55
-44    </application>
-45
-46</manifest>
+30        <activity android:name="com.examples.mobileProject.chart.CallActivity" />
+30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:9-65
+30-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:21:19-53
+31        <activity android:name="com.examples.mobileProject.chart.SolutionActivity" />
+31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:9-60
+31-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:22:19-57
+32        <activity android:name="com.examples.mobileProject.chart.AnalysisChartActivity" />
+32-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:23:9-65
+32-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:23:19-62
+33        <activity android:name="com.examples.mobileProject.main.SplashActivity" >
+33-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:24:9-30:20
+33-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:24:19-54
+34            <intent-filter>
+34-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:25:13-29:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:26:17-69
+35-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:26:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:28:17-77
+37-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:28:27-74
+38            </intent-filter>
+39        </activity>
+40        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
+40-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:31:9-77
+40-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:31:19-74
+41        <activity
+41-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:32:9-35:58
+42            android:name="com.examples.mobileProject.main.MainActivity"
+42-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:33:13-46
+43            android:exported="true"
+43-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:34:13-36
+44            android:windowSoftInputMode="adjustResize" />
+44-->C:\CookAndroid\Project\mobile_project\app\src\main\AndroidManifest.xml:35:13-55
+45    </application>
+46
+47</manifest>

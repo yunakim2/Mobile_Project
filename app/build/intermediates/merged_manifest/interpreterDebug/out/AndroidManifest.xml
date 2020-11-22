@@ -27,8 +27,9 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.examples.mobileProject.analysis.AnalysisChartActivity" />
-        <activity android:name="com.examples.mobileProject.analysis.CallDialog" />
+        <activity android:name="com.examples.mobileProject.chart.CallActivity" />
+        <activity android:name="com.examples.mobileProject.chart.SolutionActivity" />
+        <activity android:name="com.examples.mobileProject.chart.AnalysisChartActivity" />
         <activity android:name="com.examples.mobileProject.main.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

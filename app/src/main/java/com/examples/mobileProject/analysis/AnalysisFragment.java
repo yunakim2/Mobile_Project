@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,7 @@ import android.widget.Toast;
 import com.examples.mobileProject.R;
 import com.examples.mobileProject.adapter.AnalysisAdapter;
 import com.examples.mobileProject.calendar.myDBHelper;
+import com.examples.mobileProject.chart.AnalysisChartActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -65,21 +65,26 @@ public class AnalysisFragment extends Fragment {
             @Override
             public void onItemClick(View v, int pos) {
                 Toast.makeText(getContext(),"pos : "+pos,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(),AnalysisChartActivity.class);
+                Intent intent = new Intent(getContext(), AnalysisChartActivity.class);
                 if(pos == 0) {
                     intent.putExtra("datas",weekData_1);
+                    intent.putExtra("title","최근 일주일");
                 }
                 if(pos == 1) {
                     intent.putExtra("datas",weekData_2);
+                    intent.putExtra("title","지난 2주");
                 }
                 if(pos == 2) {
                     intent.putExtra("datas",weekData_2);
+                    intent.putExtra("title","지난 3주");
                 }
                 if(pos == 3) {
                     intent.putExtra("datas",weekData_3);
+                    intent.putExtra("title","지난 4주");
                 }
                 if(pos == 4) {
                     intent.putExtra("datas",weekData_4);
+                    intent.putExtra("title","지난 5주");
                 }
                 startActivity(intent);
 

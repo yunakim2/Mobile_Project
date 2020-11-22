@@ -73,6 +73,7 @@ public class CalendarFragment extends Fragment {
     private static TextClassificationClient client;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
