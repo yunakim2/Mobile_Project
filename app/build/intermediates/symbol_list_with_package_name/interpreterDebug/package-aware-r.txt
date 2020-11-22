@@ -810,6 +810,7 @@ id blocking
 id bottom
 id btnAnalysis
 id btnCancle
+id btnContact
 id btnOK
 id btnTrans
 id button
@@ -959,6 +960,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
 id time
 id title
 id titleDividerNoCustom
@@ -1044,6 +1046,7 @@ layout activity_text_translation
 layout calendar_dialog
 layout call_dialog
 layout custom_dialog
+layout empty_calllog_dialog
 layout fragment_analysis
 layout fragment_calendar
 layout item_analysis_list

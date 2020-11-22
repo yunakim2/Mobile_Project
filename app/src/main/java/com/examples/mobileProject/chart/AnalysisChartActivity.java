@@ -1,16 +1,22 @@
 package com.examples.mobileProject.chart;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CallLog;
+import android.provider.ContactsContract;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,9 +40,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AnalysisChartActivity extends AppCompatActivity {
-    TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
+import static com.examples.mobileProject.R.layout.calendar_dialog;
+import static com.examples.mobileProject.R.layout.empty_calllog_dialog;
 
+public class AnalysisChartActivity extends AppCompatActivity {
+    View dialogView;
+    Button btnContact, btnCancle;
+    TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
     LineChart chart ;
     ImageView imgEmotion;
     ArrayList<AnalysisDayData> data = new ArrayList<AnalysisDayData>();
@@ -61,17 +71,39 @@ public class AnalysisChartActivity extends AppCompatActivity {
         tvChartTitle1.setText(title);
         tvChartTitle2.setText(title);
 
-
         chart = findViewById(R.id.chartBar);
-//        getCallHistory();
+
         initChart();
+
 
         tvCallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
                 Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
-                if(c.getCount()==0) Toast.makeText(getApplicationContext(),"통화기록 없음!", Toast.LENGTH_SHORT).show();
+                if(c.getCount()==0) {
+                    Toast.makeText(getApplicationContext(), "통화기록 없음!", Toast.LENGTH_SHORT).show();
+                    AlertDialog dialog = null;
+                    dialog = showDialog(dialog);
+                    btnContact = dialogView.findViewById(R.id.btnContact);
+                    btnCancle = dialogView.findViewById(R.id.btnCancle);
+                    AlertDialog finalDialog = dialog;
+                    btnContact.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //연락처로 이동
+                            Intent intent = new Intent(Intent.ACTION_PICK);
+                            intent.setData(ContactsContract.Contacts.CONTENT_URI);
+                            startActivityForResult(intent, 10);
+                        }
+                    });
+                    btnCancle.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finalDialog.dismiss();
+                        }
+                    });
+                }
                 else {
                     startActivity(new Intent(getApplicationContext(), CallActivity.class));
                 }
@@ -177,6 +209,16 @@ public class AnalysisChartActivity extends AppCompatActivity {
         chart.setData(data);
         chart.invalidate();
     }
+    private AlertDialog showDialog(AlertDialog dialog){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        dialogView = inflater.inflate(empty_calllog_dialog, null);
+        builder.setView(dialogView);
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        dialog.show();
+        return dialog;
+    }
 
 }
