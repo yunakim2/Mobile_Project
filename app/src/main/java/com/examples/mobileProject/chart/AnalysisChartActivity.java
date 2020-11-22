@@ -46,6 +46,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analysis_chart);
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
 
+
         tvChartTitle1 = findViewById(R.id.tvChartTitle);
         tvChartTitle2 = findViewById(R.id.tvChartWeek);
         tvEmotionCal = findViewById(R.id.tvChartEmotion);
@@ -68,7 +69,12 @@ public class AnalysisChartActivity extends AppCompatActivity {
         tvCallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CallActivity.class));
+                String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
+                Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
+                if(c.getCount()==0) Toast.makeText(getApplicationContext(),"통화기록 없음!", Toast.LENGTH_SHORT).show();
+                else {
+                    startActivity(new Intent(getApplicationContext(), CallActivity.class));
+                }
             }
         });
 

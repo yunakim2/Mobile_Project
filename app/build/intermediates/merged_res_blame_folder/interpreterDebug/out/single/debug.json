@@ -12,12 +12,12 @@
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-ldpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable-xxxhdpi_ic_baseline_calendar_today_24.png.flat",
-        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-xxxhdpi\\ic_baseline_calendar_today_24.png"
-    },
-    {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable-hdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable-xxxhdpi_ic_baseline_calendar_today_24.png.flat",
+        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-xxxhdpi\\ic_baseline_calendar_today_24.png"
     },
     {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
@@ -36,12 +36,12 @@
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\layout\\fragment_analysis.xml"
     },
     {
-        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable_item_recycler_bg_pink.xml.flat",
-        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\drawable\\item_recycler_bg_pink.xml"
-    },
-    {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable-xxhdpi_ic_baseline_calendar_today_24.png.flat",
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-xxhdpi\\ic_baseline_calendar_today_24.png"
+    },
+    {
+        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable_item_recycler_bg_pink.xml.flat",
+        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\drawable\\item_recycler_bg_pink.xml"
     },
     {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable-xhdpi_ic_baseline_add_photo_alternate_24.png.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\generated\\res\\pngs\\interpreter\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\CookAndroid\\Project\\mobile_project\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\CookAndroid\\Project\\mobile_project\\app\\build\\intermediates\\res\\merged\\interpreter\\debug\\drawable_calendar_dlg_bg.xml.flat",
