@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.examples.mobileProject">
+    package="com.examples.mobileProject"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -9,8 +10,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".chart.CallActivity"/>
+        <activity android:name=".chart.CallActivity" />
         <activity android:name=".chart.SolutionActivity" />
         <activity android:name=".chart.AnalysisChartActivity" />
         <activity android:name=".main.SplashActivity">

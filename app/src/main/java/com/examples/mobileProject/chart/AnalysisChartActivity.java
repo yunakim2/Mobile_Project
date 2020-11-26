@@ -274,7 +274,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
                     callData.add(new CallData(name,getDrawable(R.drawable.call_icon)));
                     //i++;
                 }
-
                 c.moveToNext();
             }
         }catch (CursorIndexOutOfBoundsException e){
