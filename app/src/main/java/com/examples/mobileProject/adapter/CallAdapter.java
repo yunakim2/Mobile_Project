@@ -37,7 +37,7 @@ public class CallAdapter extends RecyclerView.Adapter<CallAdapter.CallViewHolder
     @Override
     public void onBindViewHolder(@NonNull CallViewHolder holder, int position) {
         holder.txt.setText(mList.get(position).getTitle());
-        holder.btn.setImageDrawable(mList.get(position).getImg());
+        holder.btn.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_baseline_call_24));
 
 //        holder.emoji.setColorFilter(ContextCompat.getColor(context,R.color.colorGrey));
 
@@ -50,14 +50,14 @@ public class CallAdapter extends RecyclerView.Adapter<CallAdapter.CallViewHolder
 
     public class  CallViewHolder extends RecyclerView.ViewHolder{
         protected TextView txt;
-        protected ImageButton btn;
+        protected ImageView btn;
 
         public CallViewHolder(View view) {
             super(view);
             this.txt = view.findViewById(R.id.txtCall);
             this.btn = view.findViewById(R.id.imgBtnCall);
 
-            btn.setOnClickListener(new View.OnClickListener() {
+            view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
