@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.examples.mobileProject.R;
 import com.examples.mobileProject.realmDB.CalendarData;
 import com.examples.mobileProject.realmDB.realmDB;
 import com.examples.mobileProject.texttranslation.PapagoTextTranslate;
@@ -71,6 +72,7 @@ public class CalendarFragment extends Fragment {
     private static Handler handler;
     private static TextClassificationClient client;
     private static realmDB myDB;
+    String clientId, secret;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,6 +87,8 @@ public class CalendarFragment extends Fragment {
         myDB = new realmDB();
         realm = Realm.getDefaultInstance();
         myDB.setRealm(realm);
+        clientId = getActivity().getResources().getString(string.papago_client_id);
+        secret = getActivity().getResources().getString(string.papago_client_secret);
 
 
         calendar = (CalendarView)getView().findViewById(id.calendarView);
@@ -151,7 +155,7 @@ public class CalendarFragment extends Fragment {
                                         PapagoTextTranslate tranMode = new PapagoTextTranslate();
                                         String result;
 
-                                        result = tranMode.getTranslation(content, "ko", "en");
+                                        result = tranMode.getTranslation(clientId,secret,content, "ko", "en");
                                         Bundle resultBundle = new Bundle();
                                         resultBundle.putString("resultWord", result);
                                         Message msg = transper_handler.obtainMessage();
@@ -184,7 +188,7 @@ public class CalendarFragment extends Fragment {
                                 public void run() {
                                     PapagoTextTranslate tranMode = new PapagoTextTranslate();
                                     String result;
-                                    result = tranMode.getTranslation(content, "ko", "en");
+                                    result = tranMode.getTranslation(clientId,secret,content, "ko", "en");
                                     Bundle resultBundle = new Bundle();
                                     resultBundle.putString("resultWord", result);
                                     Message msg = transper_handler.obtainMessage();
