@@ -2,14 +2,15 @@ com/examples/mobileProject/calendar/myDBHelper.java
  com.examples.mobileProject.calendar.myDBHelper
 com/examples/mobileProject/analysis/AnalysisDayData.java
  com.examples.mobileProject.analysis.AnalysisDayData
-com/examples/mobileProject/main/Menus.java
- com.examples.mobileProject.main.Menus
+com/examples/mobileProject/chart/AnalysisChartActivity.java
+ com.examples.mobileProject.chart.AnalysisChartActivity
+ com.examples.mobileProject.chart.AnalysisChartActivity$1
+ com.examples.mobileProject.chart.AnalysisChartActivity$2
 com/examples/mobileProject/BuildConfig.java
  com.examples.mobileProject.BuildConfig
-com/examples/mobileProject/main/SplashActivity.java
- com.examples.mobileProject.main.SplashActivity
- com.examples.mobileProject.main.SplashActivity$1
- com.examples.mobileProject.main.SplashActivity$splashhandler
+com/examples/mobileProject/analysis/AnalysisFragment.java
+ com.examples.mobileProject.analysis.AnalysisFragment
+ com.examples.mobileProject.analysis.AnalysisFragment$1
 com/examples/mobileProject/calendar/CalendarFragment.java
  com.examples.mobileProject.calendar.CalendarFragment
  com.examples.mobileProject.calendar.CalendarFragment$1
@@ -41,10 +42,9 @@ com/examples/mobileProject/adapter/AnalysisAdapter.java
  com.examples.mobileProject.adapter.AnalysisAdapter$AnalysisViewHolder
  com.examples.mobileProject.adapter.AnalysisAdapter$AnalysisViewHolder$1
  com.examples.mobileProject.adapter.AnalysisAdapter$OnItemClickListener
-com/examples/mobileProject/chart/AnalysisChartActivity.java
- com.examples.mobileProject.chart.AnalysisChartActivity
- com.examples.mobileProject.chart.AnalysisChartActivity$1
- com.examples.mobileProject.chart.AnalysisChartActivity$2
-com/examples/mobileProject/analysis/AnalysisFragment.java
- com.examples.mobileProject.analysis.AnalysisFragment
- com.examples.mobileProject.analysis.AnalysisFragment$1
+com/examples/mobileProject/main/SplashActivity.java
+ com.examples.mobileProject.main.SplashActivity
+ com.examples.mobileProject.main.SplashActivity$1
+ com.examples.mobileProject.main.SplashActivity$splashhandler
+com/examples/mobileProject/main/Menus.java
+ com.examples.mobileProject.main.Menus
