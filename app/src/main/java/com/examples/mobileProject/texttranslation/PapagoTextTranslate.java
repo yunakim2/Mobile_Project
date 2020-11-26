@@ -8,10 +8,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class PapagoTextTranslate {
-    public String getTranslation(String word, String source, String target) {
-
-        String clientId = "ddkjDnr5tSaJOdFe7OCt";//애플리케이션 클라이언트 아이디값";
-        String clientSecret = "OULT1xfDfd";//애플리케이션 클라이언트 시크릿값";
+    public String getTranslation(String clientId, String clientSecret,String word, String source, String target) {
 
         try {
             String wordSource, wordTarget;
