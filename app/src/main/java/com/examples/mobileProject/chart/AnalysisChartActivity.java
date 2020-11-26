@@ -105,10 +105,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
                     btnContact.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            //연락처로 이동
-//                            Intent intent = new Intent(Intent.ACTION_PICK);
-//                            intent.setData(ContactsContract.Contacts.CONTENT_URI);
-//                            startActivityForResult(intent, 10);
                             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/"));
                             startActivity(intent);
 

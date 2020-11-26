@@ -39,7 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.examples.mobileProject.texttranslation.TextTranslationActivity" />
         <activity
             android:name="com.examples.mobileProject.main.MainActivity"
             android:exported="true"

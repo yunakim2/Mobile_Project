@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,7 @@ public class AnalysisFragment extends Fragment {
     RecyclerView mRecyclerView = null ;
     AnalysisAdapter mAdapter = null ;
     ArrayList<AnalysisData> analysis = new ArrayList<AnalysisData>();
+    ConstraintLayout clEmpty ;
 
     ArrayList<AnalysisDayData> weekData_1 = new ArrayList<AnalysisDayData>();
     ArrayList<AnalysisDayData> weekData_2 = new ArrayList<AnalysisDayData>();
@@ -57,14 +59,13 @@ public class AnalysisFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        clEmpty = getActivity().findViewById(R.id.clEmpty);
 
         mRecyclerView = requireView().findViewById(R.id.recycler1);
-        mAdapter = new AnalysisAdapter(analysis,getContext());
-
+        mAdapter = new AnalysisAdapter(analysis, getContext());
         mAdapter.setOnItemClickListener(new AnalysisAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int pos) {
-                Toast.makeText(getContext(),"pos : "+pos,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), AnalysisChartActivity.class);
                 if(pos == 0) {
                     intent.putExtra("datas",weekData_1);
@@ -137,8 +138,6 @@ public class AnalysisFragment extends Fragment {
             long calDateDays = calDate / ( 24*60*60*1000);
 
             //calDateDays = Math.abs(calDateDays);
-
-            System.out.println("두 날짜의 날짜 차이: "+calDateDays);
             return calDateDays;
         }
         catch(ParseException e)
@@ -157,21 +156,12 @@ public class AnalysisFragment extends Fragment {
         for(int i =0 ; i<weekData.size();i++) {
             getDayStr = Integer.toString(weekData.get(i).date); //format 맞춰줘야함 (yyyy-mm-dd)
             inputStr = getDayStr.substring(0,3)+"0-"+getDayStr.substring(3,5)+"-"+getDayStr.substring(5,7);
-
-            System.out.println(curDateStr);
-            System.out.println(inputStr);
             sub = calcDateBetweenAnB(curDateStr, inputStr);
             if(sub<7) weekData_1.add(weekData.get(i));
             else if(sub<14) weekData_2.add(weekData.get(i));
             else if(sub<21) weekData_3.add(weekData.get(i));
             else if(sub<28) weekData_4.add(weekData.get(i));
       }
-
-        System.out.println(weekData_1.size());
-        System.out.println(weekData_2.size());
-        System.out.println(weekData_3.size());
-        System.out.println(weekData_4.size());
-
 
         if(weekData_1.size()!=0) {
             analysis.add( new AnalysisData("최근 일주일",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown)));
@@ -187,6 +177,14 @@ public class AnalysisFragment extends Fragment {
         }
         if(weekData_4.size()!=0) {
             analysis.add( new AnalysisData("지난 4주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink)));
+        }
+
+        if(analysis.size()!=0) {
+            clEmpty.setVisibility(View.INVISIBLE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        } else {
+            mRecyclerView.setVisibility(View.INVISIBLE);
+            clEmpty.setVisibility(View.VISIBLE);
         }
     }
 }
