@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS}, MODE_PRIVATE);
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_CONTACTS}, MODE_PRIVATE);
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
 
         clCalendar = findViewById(R.id.cl_main_calendar);
         clAnalysis = findViewById(R.id.cl_main_analysis);

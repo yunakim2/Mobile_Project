@@ -18,105 +18,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_call_1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler2"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        tools:context=".analysis.AnalysisChartActivity"
-        app:layout_constraintTop_toBottomOf="@id/txtMessage"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <TextView
-            android:id="@+id/txtCall_1"
-            android:layout_width="262dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:text="도현에게 전화걸기"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/notosanskr_medium"
-            android:gravity="fill_vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imgBtnCall_1"
-            android:layout_width="92dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/call_icon"
-            android:scaleType="fitXY"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        tools:context=".analysis.AnalysisChartActivity"
-        android:id="@+id/layout_call_2"
-        app:layout_constraintTop_toBottomOf="@+id/layout_call_1"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <TextView
-            android:id="@+id/txtCall_2"
-            android:layout_width="262dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:text="도현에게 전화걸기"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/notosanskr_medium"
-            android:gravity="fill_vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imgBtnCall_2"
-            android:layout_width="92dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/call_icon"
-            android:scaleType="fitXY"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        tools:context=".analysis.AnalysisChartActivity"
-        android:id="@+id/layout_call_3"
-        app:layout_constraintTop_toBottomOf="@+id/layout_call_2"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <TextView
-            android:id="@+id/txtCall_3"
-            android:layout_width="262dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:text="도현에게 전화걸기"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/notosanskr_medium"
-            android:gravity="fill_vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imgBtnCall_3"
-            android:layout_width="92dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/call_icon"
-            android:scaleType="fitXY"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/txtMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

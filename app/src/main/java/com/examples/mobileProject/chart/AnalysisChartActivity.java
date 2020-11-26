@@ -1,5 +1,6 @@
 package com.examples.mobileProject.chart;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -7,12 +8,15 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
+import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
@@ -44,17 +48,27 @@ import static com.examples.mobileProject.R.layout.calendar_dialog;
 import static com.examples.mobileProject.R.layout.empty_calllog_dialog;
 
 public class AnalysisChartActivity extends AppCompatActivity {
+    boolean isSucceed = true;
+    static boolean isCreated = false;
     View dialogView;
     Button btnContact, btnCancle;
     TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
     LineChart chart ;
     ImageView imgEmotion;
     ArrayList<AnalysisDayData> data = new ArrayList<AnalysisDayData>();
+    static ArrayList<String> callStr = new ArrayList<String>();
+    static ArrayList<CallData> callData = new ArrayList<CallData>();
+    static ArrayList<String> DisplayNameStr = new ArrayList<String>();
+    String number;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_chart);
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
+        if(!isCreated) {
+            isSucceed = getCallHistory(); isCreated = true;
+        }
 
 
         tvChartTitle1 = findViewById(R.id.tvChartTitle);
@@ -81,7 +95,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
                 Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
-                if(c.getCount()==0) {
+                if(callData.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "통화기록 없음!", Toast.LENGTH_SHORT).show();
                     AlertDialog dialog = null;
                     dialog = showDialog(dialog);
@@ -92,9 +106,12 @@ public class AnalysisChartActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             //연락처로 이동
-                            Intent intent = new Intent(Intent.ACTION_PICK);
-                            intent.setData(ContactsContract.Contacts.CONTENT_URI);
-                            startActivityForResult(intent, 10);
+//                            Intent intent = new Intent(Intent.ACTION_PICK);
+//                            intent.setData(ContactsContract.Contacts.CONTENT_URI);
+//                            startActivityForResult(intent, 10);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/"));
+                            startActivity(intent);
+
                         }
                     });
                     btnCancle.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +135,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
         });
 
     }
+
     public void initChart() {
         ArrayList  neg = new ArrayList();
         ArrayList  pos = new ArrayList();
@@ -219,6 +237,56 @@ public class AnalysisChartActivity extends AppCompatActivity {
 
         dialog.show();
         return dialog;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public boolean getCallHistory(){
+        boolean success = true;
+        String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
+        Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
+
+        String[] projection = new String[] {ContactsContract.PhoneLookup.DISPLAY_NAME};
+        String name = "";
+
+        String number;
+        int cnt=0;
+        //오류 잡기 => calllog 목록 수 -1 만큼 반복
+        c.moveToFirst();
+        while(c.moveToNext()){
+            cnt ++;
+        }
+        System.out.println(cnt);
+        c.moveToFirst();
+        try {
+            for (int i = 0; i < cnt; i++) {
+                number = c.getString(2);
+
+
+                String pn = number;
+                Uri uriForContactName = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(pn));
+                Cursor c2 = getBaseContext().getContentResolver().query(uriForContactName, projection, null, null, null); //전화번호부 접근
+
+
+                if (c.getInt(1) == CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number)) && (c2.moveToFirst())) {
+                    //발신 목록 중, 발신한 전화번호가 연락처 목록에 있는 경우에만, 중복번호를 제외하고 list에 넣음.
+                    callStr.add(number);
+                    name = c2.getString(0);
+                    DisplayNameStr.add(name);
+
+                    System.out.println(name);
+                    System.out.println(number);
+
+                    callData.add(new CallData(name,getDrawable(R.drawable.call_icon)));
+                    //i++;
+                }
+
+                c.moveToNext();
+            }
+        }catch (CursorIndexOutOfBoundsException e){
+            success = false;
+            throw e;
+        }
+        c.close();
+        return success;
     }
 
 }
