@@ -865,9 +865,7 @@ id icon
 id icon_group
 id ifRoom
 id image
-id imgBtnCall_1
-id imgBtnCall_2
-id imgBtnCall_3
+id imgBtnCall
 id imgDlgIcon
 id imgEmoji
 id imgEmotion
@@ -883,9 +881,6 @@ id input_text
 id invisible
 id italic
 id item_touch_helper_previous_elevation
-id layout_call_1
-id layout_call_2
-id layout_call_3
 id left
 id line1
 id line3
@@ -911,6 +906,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id recycler1
+id recycler2
 id result_text_view
 id right
 id right_icon
@@ -985,9 +981,7 @@ id tvLogo
 id tvRecyclerTitle
 id tvTitle
 id tvTransText
-id txtCall_1
-id txtCall_2
-id txtCall_3
+id txtCall
 id txtMessage
 id unchecked
 id uniform
@@ -1050,6 +1044,7 @@ layout empty_calllog_dialog
 layout fragment_analysis
 layout fragment_calendar
 layout item_analysis_list
+layout item_call_list
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
