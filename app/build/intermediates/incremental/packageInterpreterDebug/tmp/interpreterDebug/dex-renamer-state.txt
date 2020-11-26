@@ -1,4 +1,0 @@
-#Thu Nov 26 16:33:47 KST 2020
-base.0=/Users/kim-yuna/AndroidStudioProjects/mobile_project/app/build/intermediates/dex/interpreterDebug/mergeDexInterpreterDebug/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
