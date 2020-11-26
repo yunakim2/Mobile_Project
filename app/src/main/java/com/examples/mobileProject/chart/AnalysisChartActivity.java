@@ -43,7 +43,10 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -126,7 +129,11 @@ public class AnalysisChartActivity extends AppCompatActivity {
 
         chart = findViewById(R.id.chartBar);
 
-        initChart();
+        try {
+            initChart();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initPhoto();
 
 
@@ -244,14 +251,14 @@ public class AnalysisChartActivity extends AppCompatActivity {
         }
     }
 
-    private void initChart() {
+    private void initChart() throws Exception {
         ArrayList  neg = new ArrayList();
         ArrayList  pos = new ArrayList();
         ArrayList  date = new ArrayList();
         Float SumNeg =0.0f;
         Float SumPos = 0.0f;
 
-        RealmResults<CalendarData> calendarData = myDB.getWeekDiaryList(startDate,startDate+7);
+        RealmResults<CalendarData> calendarData = myDB.getWeekDiaryList(startDate,Integer.parseInt(addDate(Integer.toString(startDate),0,0,+7)));
         img.clear();
         for(int i =0 ; i<calendarData.size() ; i++) {
             System.out.println(calendarData.get(i).getDate());
@@ -415,6 +422,15 @@ public class AnalysisChartActivity extends AppCompatActivity {
         c.close();
         return success;
     }
+    private static String addDate(String dt, int y, int m, int d) throws Exception {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        Calendar cal = Calendar.getInstance();
+        Date date = format.parse(dt);
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, y);
+        cal.add(Calendar.MONTH, m);
+        cal.add(Calendar.DATE, d);
+        return format.format(cal.getTime()); }
 
 
 }

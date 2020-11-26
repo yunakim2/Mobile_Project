@@ -66,8 +66,11 @@ public class AnalysisFragment extends Fragment {
         clEmpty = getActivity().findViewById(R.id.clEmpty);
 
 
-        sortDates();
-
+        try {
+            sortDates();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         mAdapter.setOnItemClickListener(new AnalysisAdapter.OnItemClickListener() {
@@ -82,35 +85,35 @@ public class AnalysisFragment extends Fragment {
         });
 
     }
-    private void sortDates(){
+    private void sortDates() throws Exception {
         analysis.clear();
         Date currentTime = Calendar.getInstance().getTime();
         currentDate = currentTime.getDate(); currentMonth = currentTime.getMonth()+1; currentYear = 2020;
         curDateStr = Integer.toString(currentYear)+Integer.toString(currentMonth)+Integer.toString(currentDate);
 
 
-        int weekData_1 = myDB.getWeekDiaryListCount(Integer.parseInt(curDateStr)-7, Integer.parseInt(curDateStr));
-        int weekData_2 = myDB.getWeekDiaryListCount(Integer.parseInt(curDateStr)-14, Integer.parseInt(curDateStr)-7);
-        int weekData_3 = myDB.getWeekDiaryListCount(Integer.parseInt(curDateStr)-21, Integer.parseInt(curDateStr)-14);
-        int weekData_4 = myDB.getWeekDiaryListCount(Integer.parseInt(curDateStr)-28, Integer.parseInt(curDateStr)-21);
-        int weekData_5 = myDB.getWeekDiaryListCount(Integer.parseInt(curDateStr)-35, Integer.parseInt(curDateStr)-28);
+        int weekData_1 = myDB.getWeekDiaryListCount(Integer.parseInt(addDate(curDateStr,0,0,-7)), Integer.parseInt(curDateStr));
+        int weekData_2 = myDB.getWeekDiaryListCount(Integer.parseInt(addDate(curDateStr,0,0,-14)), Integer.parseInt(addDate(curDateStr,0,0,-7)));
+        int weekData_3 = myDB.getWeekDiaryListCount(Integer.parseInt(addDate(curDateStr,0,0,-21)), Integer.parseInt(addDate(curDateStr,0,0,-14)));
+        int weekData_4 = myDB.getWeekDiaryListCount(Integer.parseInt(addDate(curDateStr,0,0,-28)),Integer.parseInt(addDate(curDateStr,0,0,-21)));
+        int weekData_5 = myDB.getWeekDiaryListCount(Integer.parseInt(addDate(curDateStr,0,0,-35)), Integer.parseInt(addDate(curDateStr,0,0,-28)));
 
         if(weekData_1!=0) {
-            analysis.add( new AnalysisData("최근 일주일",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown),Integer.parseInt(curDateStr)-7));
+            analysis.add( new AnalysisData("최근 일주일",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown),Integer.parseInt(addDate(curDateStr,0,0,-7))));
         }
         if(weekData_2!=0) {
-            analysis.add( new AnalysisData("지난 2주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink),Integer.parseInt(curDateStr)-14));
+            analysis.add( new AnalysisData("지난 2주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink),Integer.parseInt(addDate(curDateStr,0,0,-14))));
 
         }
         if(weekData_3!=0) {
-            analysis.add( new AnalysisData("지난 3주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown),Integer.parseInt(curDateStr)-21));
+            analysis.add( new AnalysisData("지난 3주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown),Integer.parseInt(addDate(curDateStr,0,0,-21))));
 
         }
         if(weekData_4!=0) {
-            analysis.add( new AnalysisData("지난 4주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink),Integer.parseInt(curDateStr)-28));
+            analysis.add( new AnalysisData("지난 4주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink),Integer.parseInt(addDate(curDateStr,0,0,-28))));
         }
         if(weekData_5!=0) {
-            analysis.add( new AnalysisData("지난 5주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_pink),Integer.parseInt(curDateStr)-35));
+            analysis.add( new AnalysisData("지난 5주",requireActivity().getDrawable(R.drawable.ic_baseline_fact_check_24),requireActivity().getDrawable(R.drawable.item_recycler_bg_brown),Integer.parseInt(addDate(curDateStr,0,0,-35))));
 
         }
 
@@ -131,5 +134,18 @@ public class AnalysisFragment extends Fragment {
 
 
     }
+    private static String addDate(String dt, int y, int m, int d) throws Exception {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        Calendar cal = Calendar.getInstance();
+        Date date = format.parse(dt);
+        cal.setTime(date);
+        cal.add(Calendar.YEAR, y);
+        cal.add(Calendar.MONTH, m);
+        cal.add(Calendar.DATE, d);
+        return format.format(cal.getTime()); }
+
+
+
+
 
 }
