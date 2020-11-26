@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS}, MODE_PRIVATE);
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.WRITE_CONTACTS}, MODE_PRIVATE);
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS,Manifest.permission.WRITE_CONTACTS,Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
+
 
         clCalendar = findViewById(R.id.cl_main_calendar);
         clAnalysis = findViewById(R.id.cl_main_analysis);
