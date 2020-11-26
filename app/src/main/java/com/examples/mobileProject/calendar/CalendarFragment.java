@@ -1,11 +1,8 @@
 package com.examples.mobileProject.calendar;
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Bitmap;
@@ -35,19 +32,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.examples.mobileProject.R;
+import com.bumptech.glide.Glide;
+import com.examples.mobileProject.realmDB.CalendarData;
+import com.examples.mobileProject.realmDB.realmDB;
 import com.examples.mobileProject.texttranslation.PapagoTextTranslate;
 
 import org.tensorflow.lite.examples.mobileProject.client.Result;
 import org.tensorflow.lite.examples.mobileProject.client.TextClassificationClient;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import java.util.Timer;
+
+import io.realm.Realm;
+
 import static android.app.Activity.RESULT_OK;
 import static com.examples.mobileProject.R.*;
 import static com.examples.mobileProject.R.drawable.*;
@@ -56,11 +57,9 @@ import static com.examples.mobileProject.R.layout.calendar_dialog;
 
 
 public class CalendarFragment extends Fragment {
-    public static ArrayList<ClipData.Item> items = new ArrayList<>();
-    myDBHelper myHelper;
-    SQLiteDatabase sqlDB;
-    String fileName,imgfileName;
+    private Realm realm;
     static int curDay, curMonth, curYear;
+    String curDate, content;
     View dialogView;
     EditText edtDiary;
     CalendarView calendar;
@@ -71,22 +70,22 @@ public class CalendarFragment extends Fragment {
     Bitmap imgBitmap;
     private static Handler handler;
     private static TextClassificationClient client;
-
-
-
+    private static realmDB myDB;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        myHelper = new myDBHelper(getContext());;
-        //myHelper.updateItems();
-
         return inflater.inflate(layout.fragment_calendar, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        myDB = new realmDB();
+        realm = Realm.getDefaultInstance();
+        myDB.setRealm(realm);
+
 
         calendar = (CalendarView)getView().findViewById(id.calendarView);
         client = new TextClassificationClient(getContext());
@@ -113,10 +112,6 @@ public class CalendarFragment extends Fragment {
                 AlertDialog dialog = null;
                 dialog = showDialog(dialog);
 
-//                dialogView = (View) View.inflate(getContext(), calendar_dialog, null);
-//                AlertDialog.Builder dlg = new AlertDialog.Builder(getContext());
-//                AlertDialog dialog = dlg.create();
-
                 edtDiary = dialogView.findViewById(id.edtDiary);
                 imgGallery = dialogView.findViewById(id.imgGallery);
                 imgPhoto =  dialogView.findViewById(id.imgPhoto);
@@ -125,24 +120,38 @@ public class CalendarFragment extends Fragment {
                 btnDlgOK = dialogView.findViewById(id.btnOK);
                 btnDlgCancel = dialogView.findViewById(id.btnCancle);
                 btnDlgAnalysis = dialogView.findViewById(id.btnAnalysis);
-//                dialog.setView(dialogView);
-                String date = Integer.toString(curYear)+"년 "+Integer.toString(curMonth)+"월 "+Integer.toString(curDay)+"일";
-                openDB(curYear,curMonth,curDay);
-//                dialog.show();
+
+                String date = Integer.toString(year)+"년 "+Integer.toString(month+1)+"월 "+Integer.toString(dayOfMonth)+"일";
+                String curDays = "";
+                if(curDay<10) {
+                    curDays = "0"+Integer.toString(curDay);
+                } else {
+                    curDays = Integer.toString(curDay);
+                }
+
+                String curMonths;
+                if(curMonth<10) {
+                    curMonths = "0"+Integer.toString(curMonth);
+                } else {
+                    curMonths = Integer.toString(curMonth);
+                }
+                curDate = Integer.toString(curYear)+curMonths+curDays;
                 tvDlgTitle.setText(date);
+                readDiary(curDate);
+
+
                 btnDlgOK.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        try{
-                            String str = edtDiary.getText().toString();
-                            if(!str.isEmpty()) {
+                            content = edtDiary.getText().toString();
+                            if(!content.isEmpty()) {
                                 new Thread() {
                                     @Override
                                     public void run() {
                                         PapagoTextTranslate tranMode = new PapagoTextTranslate();
                                         String result;
 
-                                        result = tranMode.getTranslation(str, "ko", "en");
+                                        result = tranMode.getTranslation(content, "ko", "en");
                                         Bundle resultBundle = new Bundle();
                                         resultBundle.putString("resultWord", result);
                                         Message msg = transper_handler.obtainMessage();
@@ -153,25 +162,10 @@ public class CalendarFragment extends Fragment {
                             } else {
                                 Toast.makeText(getContext(), "일기를 입력해주세요!", Toast.LENGTH_SHORT).show();
                             }
-                            //
 
-                            FileOutputStream outFs = getActivity().openFileOutput(fileName, Context.MODE_PRIVATE);
-                            outFs.write(str.getBytes());
-                            if(imgBitmap !=null) {
-                                FileOutputStream outImgFs = getActivity().openFileOutput(imgfileName, Context.MODE_PRIVATE);
-                                imgBitmap.compress(Bitmap.CompressFormat.PNG,0,outImgFs);
-                            }
-                            outFs.close();
-                            Toast.makeText(getContext(),  "file_" +fileName+"이 저장됨", Toast.LENGTH_SHORT).show();
-
-
-
-                        }
-                        catch (IOException e){
-                            Toast.makeText(getContext(),"err", Toast.LENGTH_SHORT).show();
-                        }
                     }
                 });
+
                 AlertDialog finalDialog = dialog;
                 btnDlgCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -183,14 +177,14 @@ public class CalendarFragment extends Fragment {
                 btnDlgAnalysis.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String str = edtDiary.getText().toString();
-                        if(!str.isEmpty()) {
+                        content = edtDiary.getText().toString();
+                        if(!content.isEmpty()) {
                             new Thread() {
                                 @Override
                                 public void run() {
                                     PapagoTextTranslate tranMode = new PapagoTextTranslate();
                                     String result;
-                                    result = tranMode.getTranslation(str, "ko", "en");
+                                    result = tranMode.getTranslation(content, "ko", "en");
                                     Bundle resultBundle = new Bundle();
                                     resultBundle.putString("resultWord", result);
                                     Message msg = transper_handler.obtainMessage();
@@ -203,12 +197,6 @@ public class CalendarFragment extends Fragment {
                         }
                     }
                 });
-
-                fileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+".txt";
-                imgfileName = Integer.toString(curYear)+"_"+ Integer.toString(curMonth)+"_"+ Integer.toString(curDay)+"_IMG.png";
-                String str = readDiary(fileName);
-                readImg(imgfileName);
-                edtDiary.setText(str);
 
                 imgGallery.setOnClickListener(new View.OnClickListener(){
                     @Override
@@ -257,10 +245,7 @@ public class CalendarFragment extends Fragment {
     private void classify(final String text) {
         handler.post(
                 () -> {
-                    // Run text classification with TF Lite.
                     List<Result> results = client.classify(text);
-
-                    // Show classification result on screen
                     showResult(text, results);
                 });
     }
@@ -270,7 +255,6 @@ public class CalendarFragment extends Fragment {
         getActivity().runOnUiThread( () -> {
             float resPos , resNeg;
             Result result = results.get(0);
-            System.out.println(result.getTitle() + result.getConfidence());
             if(result.getTitle().equals("Negative")) {
                 resNeg = result.getConfidence();
                 resPos = 1- resNeg;
@@ -279,7 +263,12 @@ public class CalendarFragment extends Fragment {
                 resNeg = 1-resPos;
             }
             //resPos,resNeg 값과 그때 날짜를 db에 저장.
-            saveDB(resPos,resNeg);
+            byte [] img = null ;
+            if(imgBitmap!=null) {
+                img = bitmapToByteArray(imgBitmap);
+            }
+            myDB.updateDiary(Integer.parseInt(curDate),content,resPos,resNeg,img);
+            Toast.makeText(getContext(),"일기가 저장되었습니다.",Toast.LENGTH_SHORT).show();
             initEmoji(resPos, resNeg);
         });
     }
@@ -295,62 +284,13 @@ public class CalendarFragment extends Fragment {
             imgEmotion.setImageDrawable(getResources().getDrawable(sad_brown));
         }
     }
-    private void openDB(int curYear, int curMonth, int curDay) {
-        int dbDate = 1000*curYear+100*curMonth+curDay;
-        try {
-            sqlDB = myHelper.getReadableDatabase();
-            Cursor cursor = sqlDB.rawQuery("SELECT * FROM emotionTBL",null);
-            if(cursor!=null) {
-                if(cursor.moveToFirst()) {
-                    do {
-                        if(dbDate == cursor.getInt(cursor.getColumnIndex("dbDate"))) {
-                            float resPos = cursor.getFloat(cursor.getColumnIndex("dbPos"));
-                            float resNeg = cursor.getFloat(cursor.getColumnIndex("dbNeg"));
-                            initEmoji(resPos,resNeg);
-                            break;
-                        }
-                    } while(cursor.moveToNext());
-                }
-            }
-
-        } catch (SQLiteException e) {
-            System.out.println(e);
-        }
-
-
-    }
-    private void saveDB(float resPos, float resNeg){
-        int dbDate = 1000*curYear+100*curMonth+curDay;
-        boolean find = false;
-
-        sqlDB = myHelper.getReadableDatabase();
-        Cursor cursor = sqlDB.rawQuery("SELECT dbDate FROM emotionTBL", null);
-        while(cursor.moveToNext()){
-            if(cursor.getInt(0) == dbDate){
-                Log.e("err","4");
-                sqlDB.execSQL("UPDATE emotionTBL SET dbPos = '"+resPos+"', "+"dbNeg = '"+resNeg+"' WHERE dbDate = '"+dbDate+"';");
-                sqlDB.close();
-                Log.e("err","5");
-                find = true; break;
-            }
-        }
-        //새로운 날짜에 작성시 insert
-        if(find == false) {
-            Log.e("err","1");
-            sqlDB = myHelper.getWritableDatabase();
-            sqlDB.execSQL("INSERT INTO emotionTBL VALUES ('"+dbDate+"', '"+resPos+"', '"+resNeg+"');");
-            Log.e("err","2");
-            sqlDB.close();
-            Log.e("err","3");
-        }
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == GET_IMG && resultCode == RESULT_OK && data!=null && data.getData()!=null ) {
             Uri selectedImageUri = data.getData();
-            imgPhoto.setImageURI(selectedImageUri);
             try {
                 imgBitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),selectedImageUri);
+                Glide.with(this).load(imgBitmap).into(imgPhoto);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -359,42 +299,38 @@ public class CalendarFragment extends Fragment {
         super.onActivityResult(requestCode,resultCode,data);
     }
 
-    void readImg(String fName){
-        FileInputStream inFs;
-        try {
-            inFs = getActivity().openFileInput(fName);
-            Bitmap bt = BitmapFactory.decodeStream(inFs);
-            if (bt != null) {
-                Matrix matrix = new Matrix();
-                matrix.postRotate(90);
-                Bitmap scaledBitmap = Bitmap.createScaledBitmap(bt,bt.getWidth(),bt.getHeight(),true);
-                Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap,0,0,scaledBitmap.getWidth(),scaledBitmap.getHeight(),matrix,true);
-                imgPhoto.setImageBitmap(rotatedBitmap);
-            } else {
-                System.out.println("null!!!!!");
+
+    public byte[] bitmapToByteArray( Bitmap bitmap ) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream() ;
+        bitmap.compress( Bitmap.CompressFormat.JPEG, 100, stream) ;
+        byte[] byteArray = stream.toByteArray() ;
+        return byteArray ;
+    }
+
+    public Bitmap byteArrayToBitmap( byte[] $byteArray ) {
+        Bitmap bitmap = BitmapFactory.decodeByteArray( $byteArray, 0, $byteArray.length ) ;
+        return bitmap ;
+    }
+
+    void readDiary(String date) {
+
+        CalendarData data = myDB.getDiary(Integer.parseInt(date));
+        if (data != null) {
+            edtDiary.setText(data.getContnet());
+            initEmoji(data.getPositive(), data.getNegative());
+            System.out.println("date:"+Integer.toString(data.getDate()));
+            System.out.println("neg : "+Float.toString(data.getNegative()));
+            System.out.println("pos : "+Float.toString(data.getPositive()));
+            System.out.println("content :"+data.getContnet());
+
+            if(data.getImg()!=null) {
+                imgBitmap = byteArrayToBitmap(data.getImg());
+                System.out.println("img:"+imgBitmap.toString());
+               Glide.with(this).load(imgBitmap).into(imgPhoto);
             }
-        } catch (IOException e){
-            System.out.println("이미지 없음");
+        } else {
+            edtDiary.setHint("일기를 적어주세요!");
         }
-
-
     }
 
-    String readDiary(String fName){
-        String diaryStr = null;
-        FileInputStream inFs;
-        try{
-            System.out.println(fName);
-            inFs = getActivity().openFileInput(fName);
-            System.out.println(inFs);
-            byte[] txt = new byte[500];
-            inFs.read(txt);
-            inFs.close();
-            diaryStr = (new String(txt)).trim();
-        }
-        catch (IOException e){
-            edtDiary.setHint("일기 없음");
-        }
-        return diaryStr;
-    }
 }

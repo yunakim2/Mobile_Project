@@ -6,6 +6,22 @@ public class AnalysisData {
     private String title ;
     private Drawable iconDrawable;
     private Drawable color;
+    private int startDate;
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
+    }
+
+    public AnalysisData(String title, Drawable iconDrawable, Drawable color, int startDate) {
+        this.title = title;
+        this.iconDrawable = iconDrawable;
+        this.color = color;
+        this.startDate = startDate;
+    }
 
     public Drawable getIconDrawable() {
         return iconDrawable;
@@ -23,11 +39,6 @@ public class AnalysisData {
         this.color = color;
     }
 
-    public AnalysisData(String title, Drawable iconDrawable, Drawable color) {
-        this.title = title;
-        this.iconDrawable = iconDrawable;
-        this.color = color;
-    }
 
     public String getTitle() {
         return title;

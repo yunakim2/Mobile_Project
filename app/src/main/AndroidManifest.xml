@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
 
     <application
+        android:name=".EmotionaryApplication"
         android:allowBackup="true"
         android:icon="@drawable/happy_pink"
         android:label="@string/tfe_tc_app_name"
@@ -20,8 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".chart.CallActivity"/>
-        <activity android:name=".chart.SolutionActivity" />
         <activity android:name=".chart.AnalysisChartActivity" />
         <activity android:name=".main.SplashActivity">
             <intent-filter>
