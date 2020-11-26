@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:paddingHorizontal="20dp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".chart.AnalysisChartActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,10 +56,11 @@
         app:layout_constraintTop_toBottomOf="@id/tvChartTitle1"
         />
 
+
     <com.github.mikephil.charting.charts.LineChart
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/chartBar"
         app:layout_constraintTop_toBottomOf="@id/tvChartTitle2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -149,138 +153,51 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <TextView
+        <TextView
+            android:id="@+id/txtPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_baseline_photo_24"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:text="다이어리 사진 보기"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clEmotion" />
+
+        <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvPhoto"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        tools:listitem="@layout/item_rv_photo"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/txtPhoto"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvChartCall"
         android:background="@drawable/chart_tv_bg"
-        android:text=" 가장 소중한 사람에게 전화걸기 > "
-        app:layout_constraintTop_toBottomOf="@id/clEmotion"
-        android:textSize="16sp"
+        android:text="전화걸기 > "
+        android:textSize="12sp"
         android:gravity="center"
         android:elevation="5dp"
-        android:padding="6dp"
-        android:layout_marginTop="40dp"
+        android:padding="10dp"
         android:textColor="@color/colorWhite"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvChartTitle"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvChartSolution"
-        android:background="@drawable/chart_tv_bg2"
-        android:text="이번주를 위한 해결책 보기 > "
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/tvChartCall"
-        android:textSize="16sp"
-        android:padding="6dp"
-        android:elevation="5dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/colorWhite"
-        android:fontFamily="@font/notosanskr_bold"
-        android:includeFontPadding="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:id="@+id/layout_call_1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="90dp"-->
-<!--        tools:context=".analysis.AnalysisChartActivity"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/chartBar"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/txtCall_1"-->
-<!--            android:layout_width="262dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="도현에게 전화걸기"-->
-<!--            android:textColor="@color/colorBlack"-->
-<!--            android:textSize="20sp"-->
-<!--            android:includeFontPadding="false"-->
-<!--            android:fontFamily="@font/notosanskr_medium"-->
-<!--            android:gravity="fill_vertical"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/imgBtnCall_1"-->
-<!--            android:layout_width="92dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@drawable/call_icon"-->
-<!--            android:scaleType="fitXY"/>-->
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="90dp"-->
-<!--        tools:context=".analysis.AnalysisChartActivity"-->
-<!--        android:id="@+id/layout_call_2"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/layout_call_1"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/txtCall_2"-->
-<!--            android:layout_width="262dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="도현에게 전화걸기"-->
-<!--            android:textColor="@color/colorBlack"-->
-<!--            android:textSize="20sp"-->
-<!--            android:includeFontPadding="false"-->
-<!--            android:fontFamily="@font/notosanskr_medium"-->
-<!--            android:gravity="fill_vertical"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/imgBtnCall_2"-->
-<!--            android:layout_width="92dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@drawable/call_icon"-->
-<!--            android:scaleType="fitXY"/>-->
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="90dp"-->
-<!--        tools:context=".analysis.AnalysisChartActivity"-->
-<!--        android:id="@+id/layout_call_3"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/layout_call_2"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/txtCall_3"-->
-<!--            android:layout_width="262dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:text="도현에게 전화걸기"-->
-<!--            android:textColor="@color/colorBlack"-->
-<!--            android:textSize="20sp"-->
-<!--            android:includeFontPadding="false"-->
-<!--            android:fontFamily="@font/notosanskr_medium"-->
-<!--            android:gravity="fill_vertical"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/imgBtnCall_3"-->
-<!--            android:layout_width="92dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@drawable/call_icon"-->
-<!--            android:scaleType="fitXY"/>-->
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -61,7 +61,7 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
                 @Override
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
-                    if(pos!= RecyclerView.NO_POSITION) mListener.onItemClick(view, pos);
+                    if(pos!= RecyclerView.NO_POSITION) mListener.onItemClick(view, pos, mList.get(pos));
                 }
             });
         }
@@ -74,7 +74,7 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
     }
     public interface OnItemClickListener
     {
-        void onItemClick(View v, int pos);
+        void onItemClick(View v, int pos, AnalysisData data);
     }
     // 리스너 객체 참조를 저장하는 변수
     private OnItemClickListener mListener = null;

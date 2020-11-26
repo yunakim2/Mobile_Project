@@ -1,12 +1,17 @@
 package com.examples.mobileProject.chart;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.graphics.Color;
@@ -16,70 +21,104 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
-import android.telecom.Call;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.examples.mobileProject.R;
-import com.examples.mobileProject.analysis.AnalysisDayData;
-import com.github.mikephil.charting.charts.BarChart;
+import com.examples.mobileProject.adapter.AnalysisAdapter;
+import com.examples.mobileProject.adapter.CallAdapter;
+import com.examples.mobileProject.adapter.PhotoAdapter;
+import com.examples.mobileProject.analysis.AnalysisData;
+import com.examples.mobileProject.realmDB.CalendarData;
+import com.examples.mobileProject.realmDB.realmDB;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static com.examples.mobileProject.R.layout.calendar_dialog;
+import static com.examples.mobileProject.R.layout.call_dialog;
 import static com.examples.mobileProject.R.layout.empty_calllog_dialog;
+import static java.security.AccessController.getContext;
 
 public class AnalysisChartActivity extends AppCompatActivity {
     boolean isSucceed = true;
     static boolean isCreated = false;
     View dialogView;
-    Button btnContact, btnCancle;
-    TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvSolutionBtn;
+    Button btnContact, btnCallCancel, btnCancle;
+    TextView tvChartTitle1, tvChartTitle2, tvEmotionCal, tvCallBtn, tvPhotoTitle;
     LineChart chart ;
     ImageView imgEmotion;
-    ArrayList<AnalysisDayData> data = new ArrayList<AnalysisDayData>();
+    int startDate;
     static ArrayList<String> callStr = new ArrayList<String>();
     static ArrayList<CallData> callData = new ArrayList<CallData>();
     static ArrayList<String> DisplayNameStr = new ArrayList<String>();
-    String number;
+    private static ArrayList<ImgData> img = new ArrayList<ImgData>();
+    private static realmDB myDB;
+    private Realm realm;
+    RecyclerView mRecyclerView = null ;
+    PhotoAdapter mAdapter = null ;
+    RecyclerView mCallRecycler = null ;
+    CallAdapter mCallAdapter = null ;
+
+    int PERMISSION_ALL = 1;
+    String[] PERMISSIONS = {
+            android.Manifest.permission.READ_CONTACTS,
+            android.Manifest.permission.WRITE_CONTACTS,
+            Manifest.permission.READ_CALL_LOG
+    };
+
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_chart);
-        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, MODE_PRIVATE);
-        if(!isCreated) {
-            isSucceed = getCallHistory(); isCreated = true;
-        }
+
+        myDB = new realmDB();
+        realm = Realm.getDefaultInstance();
+        myDB.setRealm(realm);
 
 
         tvChartTitle1 = findViewById(R.id.tvChartTitle);
         tvChartTitle2 = findViewById(R.id.tvChartWeek);
         tvEmotionCal = findViewById(R.id.tvChartEmotion);
         tvCallBtn = findViewById(R.id.tvChartCall);
-        tvSolutionBtn = findViewById(R.id.tvChartSolution);
         imgEmotion = findViewById(R.id.imgEmotion);
+        tvPhotoTitle = findViewById(R.id.txtPhoto);
+
+        tvCallBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!hasPermissions(getApplicationContext(),PERMISSIONS)){
+                    getPermission();
+
+                } else {
+                    if(!isCreated) {
+                        isSucceed = getCallHistory(); isCreated = true;
+                    }
+                    initCall();
+                }
+
+            }
+        });
+
+
 
         Intent intent = getIntent();
-        data = (ArrayList<AnalysisDayData>) intent.getSerializableExtra("datas");
+        startDate = intent.getIntExtra("startDate",0);
         String title = intent.getStringExtra("title");
 
         tvChartTitle1.setText(title);
@@ -88,13 +127,54 @@ public class AnalysisChartActivity extends AppCompatActivity {
         chart = findViewById(R.id.chartBar);
 
         initChart();
+        initPhoto();
 
 
-        tvCallBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(Build.VERSION.SDK_INT>=23) {
+            if(grantResults.length > 0  && grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Log.d("PERMITTION","Permission: "+permissions[0]+ "was "+grantResults[0]);
+
+            }
+            // 퍼미션이 승인 거부되면
+            else {
+                Toast.makeText(this,"전화 걸기 기능을이용할 수 없습니다. \n권한 설정을 허용해주세요!",Toast.LENGTH_SHORT).show();
+                Log.d("PERMITTION","Permission denied");
+            }
+
+        }
+    }
+
+    private void getPermission(){
+
+        ActivityCompat.requestPermissions(this,
+                new String[] {
+                android.Manifest.permission.READ_CONTACTS,
+                android.Manifest.permission.WRITE_CONTACTS,
+                Manifest.permission.READ_CALL_LOG
+        }, 1000);
+
+
+    }
+
+    public boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    private void initCall() {
                 String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
-                Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
+
                 if(callData.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "통화기록 없음!", Toast.LENGTH_SHORT).show();
                     AlertDialog dialog = null;
@@ -118,44 +198,83 @@ public class AnalysisChartActivity extends AppCompatActivity {
                     });
                 }
                 else {
-                    startActivity(new Intent(getApplicationContext(), CallActivity.class));
+
+                    AlertDialog dialog = null;
+                    dialog = showCallDialog(dialog);
+
+                    mCallAdapter = new CallAdapter(callData,dialog.getContext());
+                    btnCallCancel = dialogView.findViewById(R.id.btnCallCancel);
+                    mCallRecycler = dialogView.findViewById(R.id.recycler2);
+                    mCallRecycler.setAdapter(mCallAdapter);
+                    mCallRecycler.setLayoutManager(new LinearLayoutManager(dialog.getContext())) ;
+                    mCallAdapter.notifyDataSetChanged() ;
+
+
+                    mCallAdapter.setOnItemClickListener(new CallAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View v, int pos) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/"+AnalysisChartActivity.callStr.get(pos)));
+                            startActivity(intent);
+                        }
+                    });
+                    AlertDialog finalDialog = dialog;
+                    btnCallCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finalDialog.dismiss();
+                        }
+                    });
                 }
-            }
-        });
+    }
+    private void initPhoto() {
+        mAdapter = new PhotoAdapter(img, this);
+        mRecyclerView = findViewById(R.id.rvPhoto);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)) ;
+        mAdapter.notifyDataSetChanged() ;
 
-        tvSolutionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),SolutionActivity.class));
-            }
-        });
+        if(img.size()!=0) {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            tvPhotoTitle.setVisibility(View.VISIBLE);
 
+        } else {
+            mRecyclerView.setVisibility(View.INVISIBLE);
+            tvPhotoTitle.setVisibility(View.INVISIBLE);
+
+        }
     }
 
-    public void initChart() {
+    private void initChart() {
         ArrayList  neg = new ArrayList();
         ArrayList  pos = new ArrayList();
         ArrayList  date = new ArrayList();
         Float SumNeg =0.0f;
         Float SumPos = 0.0f;
 
+        RealmResults<CalendarData> calendarData = myDB.getWeekDiaryList(startDate,startDate+7);
+        img.clear();
+        for(int i =0 ; i<calendarData.size() ; i++) {
+            System.out.println(calendarData.get(i).getDate());
+            System.out.println(calendarData.get(i).getNegative());
+            System.out.println(calendarData.get(i).getPositive());
+            String intDate = Integer.toString(calendarData.get(i).getDate());
 
-        for(int i =0 ; i<data.size() ; i++) {
-            System.out.println(data.get(i).date);
-            System.out.println(data.get(i).neg);
-            System.out.println(data.get(i).pos);
-            String intDate = Integer.toString(data.get(i).date);
-            String inputDate = intDate.substring(3,5)+"/"+intDate.substring(5,7);
+            if(calendarData.get(i).getImg()!=null) {
+                img.add(new ImgData(calendarData.get(i).getImg()));
+            }
 
-            neg.add(new BarEntry(data.get(i).neg,i));
-            pos.add(new BarEntry(data.get(i).pos, i));
-            SumNeg += data.get(i).neg;
-            SumPos+=data.get(i).pos;
+
+            String inputDate = intDate.substring(4,6)+"/"+intDate.substring(6,8);
+
+            neg.add(new BarEntry(calendarData.get(i).getNegative(),i));
+            pos.add(new BarEntry(calendarData.get(i).getPositive(), i));
+            SumNeg += calendarData.get(i).getNegative();
+            SumPos+=calendarData.get(i).getPositive();
             date.add(inputDate);
         }
 
-        SumNeg = SumNeg/data.size();
-        SumPos = SumPos/data.size();
+        SumNeg = SumNeg/calendarData.size();
+        SumPos = SumPos/calendarData.size();
         if(SumPos>=SumNeg) {
             tvEmotionCal.setText("긍정적");
             imgEmotion.setImageDrawable(getResources().getDrawable(R.drawable.happy_pink));
@@ -223,10 +342,22 @@ public class AnalysisChartActivity extends AppCompatActivity {
         chart.setData(data);
         chart.invalidate();
     }
-    private AlertDialog showDialog(AlertDialog dialog){
+    public AlertDialog showDialog(AlertDialog dialog){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         dialogView = inflater.inflate(empty_calllog_dialog, null);
+        builder.setView(dialogView);
+        dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        dialog.show();
+        return dialog;
+    }
+
+    public AlertDialog showCallDialog(AlertDialog dialog){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        dialogView = inflater.inflate(call_dialog, null);
         builder.setView(dialogView);
         dialog = builder.create();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -283,5 +414,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
         c.close();
         return success;
     }
+
 
 }
