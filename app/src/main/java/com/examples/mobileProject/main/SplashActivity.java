@@ -9,8 +9,6 @@ import android.os.Handler;
 import com.examples.mobileProject.R;
 
 public class SplashActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
