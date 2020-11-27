@@ -65,9 +65,9 @@ public class AnalysisChartActivity extends AppCompatActivity {
     LineChart chart ;
     ImageView imgEmotion;
     int startDate;
-    static ArrayList<String> callStr = new ArrayList<String>();
-    static ArrayList<CallData> callData = new ArrayList<CallData>();
-    static ArrayList<String> DisplayNameStr = new ArrayList<String>();
+    ArrayList<String> callStr = new ArrayList<String>();
+    ArrayList<CallData> callData = new ArrayList<CallData>();
+    ArrayList<String> DisplayNameStr = new ArrayList<String>();
     private static ArrayList<ImgData> img = new ArrayList<ImgData>();
     private static realmDB myDB;
     private Realm realm;
@@ -109,9 +109,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
                     getPermission();
 
                 } else {
-                    if(!isCreated) {
-                        isSucceed = getCallHistory(); isCreated = true;
-                    }
+                    isSucceed = getCallHistory();
                     initCall();
                 }
 
@@ -220,7 +218,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
                     mCallAdapter.setOnItemClickListener(new CallAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View v, int pos) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/"+AnalysisChartActivity.callStr.get(pos)));
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:/"+callStr.get(pos)));
                             startActivity(intent);
                         }
                     });
@@ -373,54 +371,50 @@ public class AnalysisChartActivity extends AppCompatActivity {
         return dialog;
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public boolean getCallHistory(){
-        boolean success = true;
-        String[] callSet = new String[] { CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
+    public boolean getCallHistory() {
+
+        String[] callSet = new String[]{CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
         Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
 
-        String[] projection = new String[] {ContactsContract.PhoneLookup.DISPLAY_NAME};
+        String[] projection = new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME};
         String name = "";
 
         String number;
-        int cnt=0;
+        int cnt = 0;
         //오류 잡기 => calllog 목록 수 -1 만큼 반복
-        c.moveToFirst();
-        while(c.moveToNext()){
-            cnt ++;
+        boolean firstSucceed = c.moveToFirst();
+        while (c.moveToNext()) {
+            cnt++;
         }
-        System.out.println(cnt);
+
+        if(!firstSucceed) return false;
+
         c.moveToFirst();
-        try {
-            for (int i = 0; i < cnt; i++) {
-                number = c.getString(2);
+
+        for (int i = 0; i < cnt+1; i++) {
+            number = c.getString(2);
+
+            String pn = number;
+            Uri uriForContactName = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(pn));
+            Cursor c2 = getBaseContext().getContentResolver().query(uriForContactName, projection, null, null, null); //전화번호부 접근
 
 
-                String pn = number;
-                Uri uriForContactName = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(pn));
-                Cursor c2 = getBaseContext().getContentResolver().query(uriForContactName, projection, null, null, null); //전화번호부 접근
+            if (c.getInt(1) == CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number)) && (c2.moveToFirst())) {
+                //발신 목록 중, 발신한 전화번호가 연락처 목록에 있는 경우에만, 중복번호를 제외하고 list에 넣음.
+                callStr.add(number);
+                name = c2.getString(0);
+                DisplayNameStr.add(name);
+                System.out.println(name);
+                System.out.println(number);
 
-
-                if (c.getInt(1) == CallLog.Calls.OUTGOING_TYPE && (!callStr.contains(number)) && (c2.moveToFirst())) {
-                    //발신 목록 중, 발신한 전화번호가 연락처 목록에 있는 경우에만, 중복번호를 제외하고 list에 넣음.
-                    callStr.add(number);
-                    name = c2.getString(0);
-                    DisplayNameStr.add(name);
-
-                    System.out.println(name);
-                    System.out.println(number);
-
-                    callData.add(new CallData(name,getDrawable(R.drawable.call_icon)));
-                    //i++;
-                }
-
-                c.moveToNext();
+                callData.add(new CallData(name, getDrawable(R.drawable.call_icon)));
+                //i++;
             }
-        }catch (CursorIndexOutOfBoundsException e){
-            success = false;
-            throw e;
+            c.moveToNext();
         }
         c.close();
-        return success;
+        if(callStr.isEmpty()) return false;
+        else return true;
     }
     private static String addDate(String dt, int y, int m, int d) throws Exception {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
@@ -431,6 +425,5 @@ public class AnalysisChartActivity extends AppCompatActivity {
         cal.add(Calendar.MONTH, m);
         cal.add(Calendar.DATE, d);
         return format.format(cal.getTime()); }
-
 
 }
