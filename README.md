@@ -21,7 +21,9 @@
 
 <br>
 ## Block Diagram
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC5.png)
+
 <br>
 <br>
 
