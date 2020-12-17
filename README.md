@@ -24,6 +24,7 @@
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC5.png)
 <br>
 <br>
+
 ## Package Structure
 
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/package.png)
@@ -85,35 +86,37 @@ FIX - When bugs was discovered
 
 ### 스플래쉬
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC4.png)
+<p align="center"><img src="./image/1.png" alt="Splash" height="500px" /></p>
 
 <br>
 
 ### 캘린더 뷰
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/1.png)
+<p align="center"><img src="./image/2.png" alt="Splash" height="500px" 
+                       <p align="center"><img src="./image/3.png" alt="Splash" height="500px" /></p>/></p>
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/2.png)
+
 
 <br>
 
 ### 분석 뷰
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/3.png)
+<p align="center"><img src="./image/4.png" alt="Splash" height="500px" /></p>
 
 <br>
 
 ### 차트 뷰
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC3.png)
+<p align="center"><img src="./image/5.png" alt="Splash" height="500px" /></p>
 
 <br>
 
 ### 통화기록 뷰
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC1.png)
+<p align="center"><img src="./image/6.png" alt="Splash" height="500px" 
+                       <p align="center"><img src="./image/7.png" alt="Splash" height="500px" /></p>/></p>
 
-![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC2.png)
+
 
 <br>
 <br>
