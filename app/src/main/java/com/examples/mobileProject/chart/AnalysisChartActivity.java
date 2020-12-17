@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -259,9 +260,6 @@ public class AnalysisChartActivity extends AppCompatActivity {
         RealmResults<CalendarData> calendarData = myDB.getWeekDiaryList(startDate,Integer.parseInt(addDate(Integer.toString(startDate),0,0,+7)));
         img.clear();
         for(int i =0 ; i<calendarData.size() ; i++) {
-            System.out.println(calendarData.get(i).getDate());
-            System.out.println(calendarData.get(i).getNegative());
-            System.out.println(calendarData.get(i).getPositive());
             String intDate = Integer.toString(calendarData.get(i).getDate());
 
             if(calendarData.get(i).getImg()!=null) {
@@ -374,7 +372,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
     public boolean getCallHistory() {
 
         String[] callSet = new String[]{CallLog.Calls.DATE, CallLog.Calls.TYPE, CallLog.Calls.NUMBER, CallLog.Calls.PHONE_ACCOUNT_COMPONENT_NAME};
-        Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
+        @SuppressLint("MissingPermission") Cursor c = getContentResolver().query(CallLog.Calls.CONTENT_URI, callSet, null, null, null);
 
         String[] projection = new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME};
         String name = "";
@@ -404,11 +402,7 @@ public class AnalysisChartActivity extends AppCompatActivity {
                 callStr.add(number);
                 name = c2.getString(0);
                 DisplayNameStr.add(name);
-                System.out.println(name);
-                System.out.println(number);
-
                 callData.add(new CallData(name, getDrawable(R.drawable.call_icon)));
-                //i++;
             }
             c.moveToNext();
         }
