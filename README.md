@@ -92,10 +92,11 @@ FIX - When bugs was discovered
 
 ### 캘린더 뷰
 
-<p align="center"><img src="./image/2.png" alt="Splash" height="500px" 
-                       <p align="center"><img src="./image/3.png" alt="Splash" height="500px" /></p>/></p>
 
 
+<p = align="center"><img height="500px" alt="coordinatorLayout" src="./image/2.png">
+<img height="500px" alt="coordinatorLayout2" src="./image/3.png"></center>
+</p>
 
 <br>
 
@@ -113,8 +114,9 @@ FIX - When bugs was discovered
 
 ### 통화기록 뷰
 
-<p align="center"><img src="./image/6.png" alt="Splash" height="500px" 
-                       <p align="center"><img src="./image/7.png" alt="Splash" height="500px" /></p>/></p>
+<p = align="center"><img height="500px" alt="coordinatorLayout" src="./image/6.png">
+<img height="500px" alt="coordinatorLayout2" src="./image/7.png"></center>
+</p>
 
 
 
