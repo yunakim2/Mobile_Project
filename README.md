@@ -20,11 +20,13 @@
 <br>
 
 <br>
-
+## Block Diagram
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC5.png)
+<br>
+<br>
 ## Package Structure
 
-<img src="/Users/kim-yuna/Library/Application Support/typora-user-images/스크린샷 2020-12-17 오후 3.36.40.png" alt="스크린샷 2020-12-17 오후 3.36.40" style="zoom:50%;" />
-
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/package.png)
 - */* : **Application Class**
 - *adpater* : **RecyclerView Adapter**
 - *analysis* : **Analysis Class / Data Class**
@@ -79,7 +81,25 @@ FIX - When bugs was discovered
 <br>
 
 <br>
-
+## 주요 화면
+### 스플래쉬
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC4.png)
+<br>
+### 캘린더 뷰
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/1.png)
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/2.png)
+<br>
+### 분석 뷰
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/3.png)
+<br>
+### 차트 뷰
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC3.png)
+<br>
+### 통화기록 뷰
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC1.png)
+![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC2.png)
+<br>
+<br>
 ## Role
 
 #### 유나
@@ -100,6 +120,7 @@ FIX - When bugs was discovered
 - 전화 걸기 뷰 / 기능
 - 분석 뷰 - 리사이클러뷰
 - 문자열 감정 분석 기능
+- 날짜 차이 계산 기능
 ~~~
 
 
