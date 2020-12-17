@@ -37,8 +37,6 @@ public class AnalysisAdapter extends RecyclerView.Adapter<AnalysisAdapter.Analys
         holder.emoji.setImageDrawable(mList.get(position).getIconDrawable());
         holder.icon.setBackground(mList.get(position).getColor());
 
-//        holder.emoji.setColorFilter(ContextCompat.getColor(context,R.color.colorGrey));
-
     }
 
     @Override

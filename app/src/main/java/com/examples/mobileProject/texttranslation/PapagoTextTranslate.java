@@ -1,5 +1,7 @@
 package com.examples.mobileProject.texttranslation;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -31,7 +33,7 @@ public class PapagoTextTranslate {
             wr.close();
             int responseCode = con.getResponseCode();
             BufferedReader br;
-            if (responseCode == 200) { // 정상 호출
+            if (responseCode == 200) {
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             } else {  // 에러 발생
                 br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -42,13 +44,11 @@ public class PapagoTextTranslate {
                 response.append(inputLine);
             }
             br.close();
-            System.out.println("번역 성공 !!!!!!!!!");
-            System.out.println(response.toString());
             String s = response.toString();
             s = s.split("\"")[27];
             return s;
         } catch (Exception e) {
-            System.out.println("Error !!!!!!!!!");
+            Log.e("Error",e.toString());
             e.printStackTrace();
 
         }

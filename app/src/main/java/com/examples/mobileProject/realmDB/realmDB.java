@@ -27,7 +27,6 @@ public class realmDB {
 
     public RealmResults<CalendarData> getWeekDiaryList(int startDate, int endDate) {
         RealmResults<CalendarData> data = realm.where(CalendarData.class).greaterThan("date",startDate).lessThanOrEqualTo("date",endDate).findAll();
-        System.out.println("??? -"+data.size());
         return data;
     }
     public int getWeekDiaryListCount(int startDate, int endDate) {
@@ -40,8 +39,8 @@ public class realmDB {
             @Override
             public void execute(Realm realm) {
                 CalendarData calendarData = realm.where(CalendarData.class).equalTo("date",Date).findFirst();
+                // insert
                 if(calendarData==null) {
-                    System.out.println("insert");
                     CalendarData newdata = realm.createObject(CalendarData.class, Date);
                     newdata.setContnet(Content);
                     newdata.setPositive(Pos);
@@ -49,7 +48,7 @@ public class realmDB {
                     newdata.setImg(img);
 
                 } else {
-                    System.out.println("update");
+                    //update
                     calendarData.setContnet(Content);
                     calendarData.setNegative(Neg);
                     calendarData.setPositive(Pos);

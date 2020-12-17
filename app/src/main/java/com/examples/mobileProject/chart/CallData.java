@@ -14,7 +14,4 @@ public class CallData {
     public String getTitle(){
         return title;
     }
-    public Drawable getImg() {
-        return img;
-    }
 }

@@ -322,14 +322,9 @@ public class CalendarFragment extends Fragment {
         if (data != null) {
             edtDiary.setText(data.getContnet());
             initEmoji(data.getPositive(), data.getNegative());
-            System.out.println("date:"+Integer.toString(data.getDate()));
-            System.out.println("neg : "+Float.toString(data.getNegative()));
-            System.out.println("pos : "+Float.toString(data.getPositive()));
-            System.out.println("content :"+data.getContnet());
 
             if(data.getImg()!=null) {
                 imgBitmap = byteArrayToBitmap(data.getImg());
-                System.out.println("img:"+imgBitmap.toString());
                Glide.with(this).load(imgBitmap).into(imgPhoto);
             }
         } else {
