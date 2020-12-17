@@ -82,24 +82,42 @@ FIX - When bugs was discovered
 
 <br>
 ## 주요 화면
+
 ### 스플래쉬
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC4.png)
+
 <br>
+
 ### 캘린더 뷰
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/1.png)
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/2.png)
+
 <br>
+
 ### 분석 뷰
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/3.png)
+
 <br>
+
 ### 차트 뷰
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC3.png)
+
 <br>
+
 ### 통화기록 뷰
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC1.png)
+
 ![image](https://github.com/yunakim2/mobile_project/blob/master/image/%EA%B7%B8%EB%A6%BC2.png)
+
 <br>
 <br>
+
 ## Role
 
 #### 유나
