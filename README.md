@@ -85,6 +85,7 @@ FIX - When bugs was discovered
 <br>
 
 <br>
+
 ## 주요 화면
 
 ### 스플래쉬
